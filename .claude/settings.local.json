@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Read(//c/Users/A/.claude/skills/update-docs/**)",
+      "Bash(bash test-update-docs.sh)",
+      "Bash(ls:*)",
+      "Bash(test:*)",
+      "Bash(git init:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

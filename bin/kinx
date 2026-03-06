@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+/**
+ * KINXKit CLI 入口文件
+ */
+
+require('../dist/index.js');

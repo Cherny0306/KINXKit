@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: {{projectName}}
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/{{projectName}}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    depends_on:
+      - db
+    volumes:
+      - ./app:/app/app
+    restart: unless-stopped
+    networks:
+      - {{projectName}}-network
+
+  db:
+    image: postgres:15-alpine
+    container_name: {{projectName}}-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB={{projectName}}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - {{projectName}}-network
+
+volumes:
+  postgres_data:
+
+networks:
+  {{projectName}}-network:
+    driver: bridge
