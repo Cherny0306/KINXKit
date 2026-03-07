@@ -9,7 +9,18 @@
       "Bash(test:*)",
       "Bash(git init:*)",
       "Bash(git config:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(mkdir:*)",
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Bash(git remote:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(where:*)",
+      "Bash(chmod +x:*)",
+      "Bash(./create-and-push.sh:*)",
+      "Bash(cmd.exe:*)"
     ]
   }
 }
