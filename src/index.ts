@@ -12,6 +12,9 @@ import { upCommand } from './commands/up.js';
 import { downCommand } from './commands/down.js';
 import { statusCommand } from './commands/status.js';
 import { logsCommand } from './commands/logs.js';
+import { createGitHubCommand } from './commands/github.js';
+import { createConfigCommand } from './commands/config.js';
+import { createDoctorCommand } from './commands/doctor.js';
 
 /**
  * KINXKit 主程序
@@ -38,6 +41,9 @@ class KinxKit {
       .addCommand(downCommand)
       .addCommand(statusCommand)
       .addCommand(logsCommand)
+      .addCommand(createGitHubCommand())
+      .addCommand(createConfigCommand())
+      .addCommand(createDoctorCommand())
       .parse(process.argv);
   }
 

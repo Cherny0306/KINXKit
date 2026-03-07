@@ -71,23 +71,53 @@ export async function showEnvironmentInfo(envInfo: any): Promise<void> {
 
   // GPU 环境
   if (envInfo.gpu || envInfo.cuda) {
-    console.log(chalk.cyan('GPU 加速:'));
+    console.log(chalk.cyan('GPU 加速 (AI/ML 项目):'));
 
     if (envInfo.gpu) {
-      logger.kvWithIcon('✓', 'NVIDIA GPU', `${envInfo.gpu.name} (${envInfo.gpu.memory}MB)`);
+      // 计算 GPU 性能评分
+      const memoryGB = ((envInfo.gpu.memory || 0) / 1024).toFixed(1);
+      const gpuName = envInfo.gpu.name || 'Unknown GPU';
+      const performanceScore = calculateGPUPerformance(gpuName, envInfo.gpu.memory || 0);
+      const performanceLabel = getPerformanceLabel(performanceScore);
+
+      logger.kvWithIcon('✓', 'NVIDIA GPU', `${envInfo.gpu.name} (${memoryGB}GB)`);
+      logger.kvWithIcon('⚡', '性能评分', `${performanceScore}/100 (${performanceLabel})`, 2);
+
       if (envInfo.gpu.driverVersion) {
-        console.log(chalk.gray(`    驱动: ${envInfo.gpu.driverVersion}`));
+        console.log(chalk.gray(`    驱动版本: ${envInfo.gpu.driverVersion}`));
+      }
+
+      // 显存使用建议
+      if (envInfo.gpu.memory < 4096) {
+        console.log(chalk.yellow(`    ⚠ 显存较小，建议使用云 GPU 或轻量级模型`));
+      } else if (envInfo.gpu.memory >= 8192) {
+        console.log(chalk.green(`    ✓ 显存充足，可运行大型 AI 模型`));
       }
     }
 
     if (envInfo.cuda && envInfo.cuda.available) {
-      logger.kvWithIcon('✓', 'CUDA', envInfo.cuda.version || '已安装');
+      logger.kvWithIcon('✓', 'CUDA Toolkit', envInfo.cuda.version || '已安装');
+
+      // CUDA 版本兼容性提示
+      const cudaVersion = envInfo.cuda.version ? parseVersion(envInfo.cuda.version) : { major: 0, minor: 0 };
+      if (cudaVersion.major >= 12) {
+        console.log(chalk.green(`    ✓ CUDA 版本较新，支持最新 AI 框架`));
+      } else if (cudaVersion.major > 0) {
+        console.log(chalk.yellow(`    ⚠ 建议升级到 CUDA 12.x 以获得更好性能`));
+      }
+
       if (envInfo.cuda.cuDNN) {
-        logger.kvWithIcon('✓', 'cuDNN', '已安装', 2);
+        logger.kvWithIcon('✓', 'cuDNN', '已安装 (性能加速库)', 2);
+      } else {
+        console.log(chalk.yellow(`    ⚠ cuDNN 未安装 (建议安装以提升训练速度)`));
       }
+
       if (envInfo.cuda.nvccPath) {
-        logger.kv('    nvcc', envInfo.cuda.nvccPath, 2);
+        logger.kv('    nvcc 路径', envInfo.cuda.nvccPath, 2);
       }
+    } else if (envInfo.gpu) {
+      console.log(chalk.yellow(`    ⚠ CUDA 未安装，GPU 无法用于 AI 加速`));
+      console.log(chalk.gray(`    访问 https://developer.nvidia.com/cuda-downloads`));
     }
 
     logger.blank();
@@ -126,8 +156,25 @@ export async function showEnvironmentInfo(envInfo: any): Promise<void> {
     suggestions.push('安装 CUDA Toolkit 以启用 GPU 加速');
   }
 
+  // WSL2 建议（Windows 用户）
   if (envInfo.platform === 'win32' && !envInfo.isWSL) {
-    suggestions.push('安装 WSL2 以获得更好的开发体验');
+    console.log(chalk.cyan('💡 Windows 开发环境建议:'));
+    console.log('');
+    console.log(chalk.yellow('  推荐安装 WSL2 (Windows Subsystem for Linux)'));
+    console.log('');
+    console.log(chalk.gray('  优势:'));
+    console.log(chalk.gray('  • 原生 Linux 性能，比虚拟机更快'));
+    console.log(chalk.gray('  • 完整的 Docker 支持，无需配置'));
+    console.log(chalk.gray('  • GPU 加速支持（CUDA）'));
+    console.log(chalk.gray('  • 与 Windows 无缝集成，文件共享'));
+    console.log('');
+    console.log(chalk.gray('  快速安装:'));
+    console.log(chalk.gray('  1. 打开 PowerShell (管理员)'));
+    console.log(chalk.gray('  2. 运行: wsl --install'));
+    console.log(chalk.gray('  3. 重启电脑并完成 Ubuntu 设置'));
+    console.log('');
+    console.log(chalk.gray('  详细指南: docs/setup/WSL.md'));
+    console.log('');
   }
 
   if (suggestions.length > 0) {
@@ -248,4 +295,80 @@ export function showConfigConfirmation(config: any): void {
 export async function showProgress(task: string): Promise<any> {
   const spinner = ora(task).start();
   return spinner;
+}
+
+/**
+ * 显示带步骤的进度动画
+ */
+export async function showProgressWithSteps(
+  task: string,
+  currentStep: number,
+  totalSteps: number,
+  stepName?: string
+): Promise<any> {
+  const percentage = Math.round((currentStep / totalSteps) * 100);
+  const progressText = stepName
+    ? `[${currentStep}/${totalSteps}] ${task} - ${stepName} (${percentage}%)`
+    : `[${currentStep}/${totalSteps}] ${task} (${percentage}%)`;
+
+  const spinner = ora(progressText).start();
+  return spinner;
+}
+
+/**
+ * GPU 性能评分计算
+ */
+function calculateGPUPerformance(gpuName: string, memoryMB: number): number {
+  let score = 50; // 基础分
+
+  // 根据 GPU 型号调整
+  const name = gpuName.toLowerCase();
+
+  if (name.includes('rtx 4090')) score += 40;
+  else if (name.includes('rtx 4080')) score += 35;
+  else if (name.includes('rtx 4070')) score += 30;
+  else if (name.includes('rtx 4060')) score += 25;
+  else if (name.includes('rtx 3090')) score += 35;
+  else if (name.includes('rtx 3080')) score += 30;
+  else if (name.includes('rtx 3070')) score += 25;
+  else if (name.includes('rtx 3060')) score += 20;
+  else if (name.includes('gtx 1660')) score += 15;
+  else if (name.includes('gtx 1650')) score += 10;
+
+  // 根据显存调整
+  if (memoryMB >= 24576) score += 10; // 24GB+
+  else if (memoryMB >= 16384) score += 8; // 16GB+
+  else if (memoryMB >= 12288) score += 6; // 12GB+
+  else if (memoryMB >= 8192) score += 4; // 8GB+
+  else if (memoryMB >= 6144) score += 2; // 6GB+
+  else if (memoryMB >= 4096) score += 0; // 4GB (基础)
+  else score -= 10; // <4GB
+
+  return Math.min(100, Math.max(0, score));
+}
+
+/**
+ * 获取性能等级标签
+ */
+function getPerformanceLabel(score: number): string {
+  if (score >= 90) return '旗舰级';
+  if (score >= 75) return '高端';
+  if (score >= 60) return '中高端';
+  if (score >= 45) return '中端';
+  if (score >= 30) return '入门级';
+  return '基础';
+}
+
+/**
+ * 解析 CUDA 版本号
+ */
+function parseVersion(version: string): { major: number; minor: number } {
+  const match = version.match(/(\d+)\.(\d+)/);
+  if (match && match[1] && match[2]) {
+    return {
+      major: parseInt(match[1], 10),
+      minor: parseInt(match[2], 10)
+    };
+  }
+  return { major: 0, minor: 0 };
 }

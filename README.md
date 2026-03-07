@@ -30,13 +30,70 @@ node dist/index.js create my-project
 - ✅ **GitHub 就绪** - Git 仓库已初始化，配置文件完成
 - ✅ **文档完整** - 9 个核心文档，完整的开发指南
 
+## 🎯 核心功能
+
+### 📦 项目创建
+
+```bash
+# 创建新项目
+kinx create my-project
+
+# 自动检测环境
+# 推荐技术栈
+# 生成项目代码
+# 配置 Docker
+# 一键启动
+```
+
+### 🔧 GitHub 集成
+
+```bash
+# GitHub 登录
+kinx github login
+
+# 查看认证状态
+kinx github status
+
+# 创建仓库并推送
+kinx github create --path ./my-project --name "my-project"
+```
+
+### ⚙️ 配置管理
+
+```bash
+# 配置 API 密钥
+kinx config api
+
+# 配置数据库
+kinx config database
+
+# 生成配置文件模板
+kinx config init
+```
+
+### 🐳 Docker 管理
+
+```bash
+# 启动服务
+kinx up
+
+# 查看状态
+kinx status
+
+# 查看日志
+kinx logs
+
+# 停止服务
+kinx down
+```
+
 ### 📊 项目进度
 
 ```
-总体进度: 70%
+总体进度: 85%
 ├─ Phase 0: 基础设施    100% ✅
-├─ Phase 1: MVP 核心      90% 🟡
-├─ Phase 2: 核心功能     45% 🟡
+├─ Phase 1: MVP 核心      100% ✅
+├─ Phase 2: 核心功能     85% 🟡
 └─ Phase 3: 增强功能      0% ⚪
 ```
 
@@ -93,6 +150,57 @@ npm run lint
 # 代码格式化
 npm run format
 ```
+
+## 📦 项目模板
+
+### Python 数据分析模板
+
+**位置**: `templates/python/data-analysis/`
+
+**功能特性**:
+- 📊 数据处理：Pandas DataFrame 操作
+- 📈 数据可视化：Matplotlib + Seaborn（10+ 种图表类型）
+- 🔬 科学计算：NumPy + SciPy
+- 📓 交互式分析：Jupyter Notebook
+- 🤖 机器学习：Scikit-learn
+
+**核心模块**:
+- `DataLoader` - CSV/Excel/JSON 文件加载
+- `DataAnalyzer` - 统计分析、相关性、异常值检测、时间序列分析
+- `DataVisualizer` - 多种图表类型（直方图、箱线图、散点图、热力图等）
+
+**技术栈**: pandas, numpy, matplotlib, seaborn, jupyter, scipy, scikit-learn
+
+### Node.js Web 应用模板
+
+**位置**: `templates/nodejs/web-app/`
+
+**功能特性**:
+- ⚡ Express.js 框架
+- 🔷 TypeScript 完整支持
+- 🛡️ 安全中间件（Helmet、CORS）
+- 📝 结构化日志（Morgan）
+- 🔧 环境变量配置
+- 🐳 Docker 支持
+
+**核心功能**:
+- 模块化路由系统
+- 错误处理中间件
+- 健康检查端点
+- 热重载开发模式
+
+**技术栈**: Express.js, TypeScript, Helmet, CORS, Morgan
+
+### Python API 服务模板
+
+**位置**: `templates/python/api-service/`
+
+**功能特性**:
+- 🚀 FastAPI 框架
+- 🔄 RESTful API
+- 📝 OpenAPI 文档自动生成
+- 🗄️ 数据库支持
+- 🔒 CORS 和安全中间件
 
 ## 📁 项目结构
 

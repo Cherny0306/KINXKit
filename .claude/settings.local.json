@@ -20,7 +20,8 @@
       "Bash(where:*)",
       "Bash(chmod +x:*)",
       "Bash(./create-and-push.sh:*)",
-      "Bash(cmd.exe:*)"
+      "Bash(cmd.exe:*)",
+      "Bash(node:*)"
     ]
   }
 }
