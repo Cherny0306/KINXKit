@@ -15,6 +15,8 @@ import { logsCommand } from './commands/logs.js';
 import { createGitHubCommand } from './commands/github.js';
 import { createConfigCommand } from './commands/config.js';
 import { createDoctorCommand } from './commands/doctor.js';
+import { createFixCommand } from './commands/fix.js';
+import { createPresetCommand } from './commands/preset.js';
 
 /**
  * KINXKit 主程序
@@ -44,6 +46,8 @@ class KinxKit {
       .addCommand(createGitHubCommand())
       .addCommand(createConfigCommand())
       .addCommand(createDoctorCommand())
+      .addCommand(createFixCommand())
+      .addCommand(createPresetCommand())
       .parse(process.argv);
   }
 
