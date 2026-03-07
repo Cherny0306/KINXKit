@@ -1,6 +1,6 @@
 {
   "name": "kinxkit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "智能项目助手 - 从创意到运行，5分钟搞定你的项目",
   "main": "dist/index.js",
   "bin": {
