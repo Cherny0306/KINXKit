@@ -251,7 +251,7 @@ export class IssueDetector {
         process.env.HTTP_PROXY,
         process.env.HTTPS_PROXY,
         process.env.ALL_PROXY
-      ].filter(Boolean);
+      ].filter((p): p is string => Boolean(p));
 
       if (proxyEnv.length > 0) {
         // 测试代理连接
@@ -452,7 +452,7 @@ export class IssueDetector {
 
       // 检查 Git 仓库权限
       try {
-        const { stdout } = await execaCommand('git status --porcelain', { reject: false });
+        await execaCommand('git status --porcelain', { reject: false });
         // 如果 git status 成功，权限应该没问题
       } catch {
         // 检查是否是权限问题
@@ -594,7 +594,7 @@ export class IssueDetector {
       for (const command of issue.fixCommands) {
         logger.info(`执行: ${command}`);
 
-    const { stdout } = await execaCommand(command, {
+    const { stdout, stderr } = await execaCommand(command, {
       shell: true
     });
     if (stdout) logger.info(stdout);

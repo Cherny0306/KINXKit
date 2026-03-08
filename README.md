@@ -20,6 +20,49 @@ node dist/index.js --help
 node dist/index.js create my-project
 ```
 
+## 🖥️ 桌面应用
+
+KINXKit 现在提供图形化桌面界面！使用 Electron 构建，支持 Windows 平台。
+
+### 快速安装
+
+```bash
+# 安装 GUI 依赖
+npm run desktop:install
+
+# 开发模式运行
+npm run desktop:dev
+
+# 构建 Windows 安装程序
+npm run desktop:build
+```
+
+### 功能特点
+
+- 🎨 **可视化界面** - 直观的项目创建和管理
+- 🐳 **Docker 管理** - 一键启动/停止容器
+- 🔧 **AI 配置** - 快速配置 6 种主流 AI 服务
+- 🗄️ **数据库预设** - PostgreSQL、MySQL、MongoDB 等
+- 📊 **系统诊断** - 可视化展示系统健康状态
+- 📝 **日志查看** - 实时查看应用日志
+
+### 获取桌面应用
+
+**选项 1**: 从源码构建（开发者）
+```bash
+npm run desktop:build
+# 输出: release/KINXKit-Desktop-0.1.0.exe
+```
+
+**选项 2**: 下载预编译版本（用户）
+- 访问 [GitHub Releases](https://github.com/Cherny0306/KINXKit/releases)
+- 下载 `KINXKit-Desktop-0.1.0.exe`
+- 双击安装即可使用
+
+📖 **详细文档**: [GUI/README.md](GUI/README.md) | [GUI/INSTALL.md](GUI/INSTALL.md)
+
+---
+
 ## ✅ 项目状态
 
 - ✅ **已发布** - 成功发布到 GitHub: https://github.com/Cherny0306/KINXKit
@@ -87,6 +130,44 @@ kinx logs
 kinx down
 ```
 
+### 🔍 问题诊断和修复
+
+```bash
+# 运行完整系统诊断
+kinx fix diagnose
+
+# 诊断 Docker 问题
+kinx fix docker
+
+# 诊断网络问题
+kinx fix network
+
+# 诊断依赖问题
+kinx fix deps
+```
+
+### 📋 配置预设
+
+```bash
+# 列出所有 AI 服务预设
+kinx preset list --type ai
+
+# 列出所有数据库预设
+kinx preset list --type database
+
+# 搜索预设
+kinx preset search "openai"
+
+# 应用 AI 服务配置
+kinx preset ai openai
+
+# 应用数据库配置
+kinx preset database postgresql
+
+# 获取推荐配置
+kinx preset recommend "ai chatbot"
+```
+
 ### 📊 项目进度
 
 ```
@@ -94,7 +175,7 @@ kinx down
 ├─ Phase 0: 基础设施    100% ✅
 ├─ Phase 1: MVP 核心      100% ✅
 ├─ Phase 2: 核心功能     100% ✅
-└─ Phase 3: 增强功能      60% 🟡
+└─ Phase 3: 增强功能     100% ✅
 ```
 
 ## 🌐 GitHub 仓库

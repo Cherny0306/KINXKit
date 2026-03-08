@@ -1,0 +1,47 @@
+appId: com.kinxkit.desktop
+productName: KINXKit Desktop
+directories:
+  output: ../release
+  buildResources: build
+files:
+  - main.js
+  - preload.js
+  - renderer/**
+  - ../dist/**
+extraMetadata:
+  name: kinxkit-desktop
+  author: KINXKit Team
+  description: 智能项目助手 - 从创意到运行，5分钟搞定你的项目
+win:
+  target:
+    - nsis
+    - portable
+  artifactName: KINXKit-Desktop-${version}-${arch}.${ext}
+  signAndEditExecutable: false
+  signingHashAlgorithms:
+    - sha256
+  # icon: build/icon.ico  # 取消注释并添加图标文件
+  requestedExecutionLevel: asInvoker
+  fileAssociations:
+    - ext: kinx
+      name: KINXKit Project
+      description: KINXKit Project File
+nsis:
+  oneClick: true
+  perMachine: false
+  allowElevation: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  allowToChangeInstallationDirectory: true
+  installerIcon: build/installer-icon.ico  # 安装程序图标
+  uninstallerIcon: build/uninstaller-icon.ico  # 卸载程序图标
+  installerHeader: build/installer-header.bmp  # 安装界面头部图片
+  installerSidebar: build/installer-sidebar.bmp  # 安装界面侧边栏
+  deleteAppDataOnUninstall: false
+  runAfterFinish: true
+portable:
+  artifactName: KINXKit-Desktop-Portable-${version}.${ext}
+publish:
+  provider: github
+  owner: kinxkit
+  repo: kinxkit

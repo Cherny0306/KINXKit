@@ -656,5 +656,391 @@ DATABASE_PASSWORD=your_password
 
 ---
 
-*最后更新: 2025-03-07 23:45*
+## Q: 如何使用问题诊断功能？(Phase 3)
+
+**A:** 使用 `kinx fix` 命令可以诊断和修复常见开发环境问题。
+
+**支持的诊断类型**：
+- Docker 问题（安装、运行、网络）
+- 网络问题（连接、DNS、代理）
+- 依赖问题（Node.js、Python、Git）
+- 权限问题（文件系统、Git 仓库）
+- 配置问题（环境变量、配置文件）
+
+**使用示例**：
+```bash
+# 1. 运行完整系统诊断
+kinx fix diagnose
+
+# 2. 诊断特定类型的问题
+kinx fix docker      # Docker 问题
+kinx fix network     # 网络问题
+kinx fix deps        # 依赖问题
+
+# 3. 自动修复（如果支持）
+# 诊断完成后会询问是否自动修复
+```
+
+**诊断结果示例**：
+```
+🔍 系统诊断结果
+
+总体健康状况: WARNING
+
+🟠 Docker 未运行
+   描述: Docker 服务未启动
+   建议: sudo systemctl start docker
+   修复命令: sudo systemctl start docker
+   ✓ 可自动修复
+
+🟡 Python 版本过低
+   描述: Python 3.8 已停止维护
+   建议: 升级到 Python 3.11+
+   修复命令: sudo apt install python3.11
+```
+
+**相关文档**：
+- [问题诊断模块](src/core/detector-issues.ts)
+
+---
+
+## Q: 如何使用配置预设功能？(Phase 3)
+
+**A:** 使用 `kinx preset` 命令可以快速生成常见服务的配置。
+
+**AI 服务预设**：
+```bash
+# 1. 列出所有 AI 服务
+kinx preset list --type ai
+
+# 2. 应用 AI 服务配置
+kinx preset ai openai
+
+# 3. 输入 API 密钥
+# 系统会自动生成 .env 文件
+
+# 4. 配置完成！
+```
+
+**支持的 AI 服务**：
+- OpenAI (GPT-4、GPT-3.5)
+- DeepSeek (国产高性能)
+- 智谱 AI (GLM-4)
+- Anthropic (Claude)
+- Azure OpenAI (企业级)
+- Moonshot AI (Kimi 长文本)
+
+**数据库预设**：
+```bash
+# 1. 列出所有数据库预设
+kinx preset list --type database
+
+# 2. 应用数据库配置
+kinx preset database postgresql
+
+# 3. 输入连接信息
+# 系统会生成 .env 和 docker-compose.yml
+
+# 4. 配置完成！
+```
+
+**支持的数据库**：
+- PostgreSQL (对象关系数据库)
+- MySQL (关系数据库)
+- MongoDB (NoSQL 文档数据库)
+- SQLite (轻量级嵌入式)
+- Redis (高性能缓存)
+
+**配置推荐**：
+```bash
+# 获取项目类型推荐
+kinx preset recommend "ai chatbot"
+
+# 输出示例：
+# AI 服务: DeepSeek (性价比高)
+# 数据库: PostgreSQL (功能强大)
+```
+
+**相关文档**：
+- [配置预设模块](src/core/preset-manager.ts)
+
+---
+
+## Q: 如何创建自定义模板？(Phase 3)
+
+**A:** 使用 KINXKit 的自定义模板系统可以创建和管理项目模板。
+
+**模板结构**：
+```
+templates/
+└── python/
+    └── my-template/
+        ├── template.json      # 模板元数据
+        ├── README.md          # 模板说明
+        └── files/             # 模板文件
+            ├── main.py.hbs    # Handlebars 模板
+            └── config.py.hbs
+```
+
+**创建步骤**：
+```bash
+# 1. 创建新模板（使用命令）
+kinx template create my-template \
+  --displayName "我的模板" \
+  --description "自定义项目模板" \
+  --category python \
+  --tags "web,api"
+
+# 2. 添加模板文件
+# 在 templates/python/my-template/files/ 中添加模板文件
+# 使用 .hbs 扩展名表示 Handlebars 模板
+
+# 3. 使用模板
+kinx create my-project --template my-template
+```
+
+**模板变量示例**：
+```handlebars
+# main.py.hbs
+#!/usr/bin/env python3
+"""
+{{ project_name }}
+{{ description }}
+"""
+
+def main():
+    print("{{ project_name }} is running!")
+
+if __name__ == "__main__":
+    main()
+```
+
+**相关文档**：
+- [模板管理模块](src/core/template-manager.ts)
+
+---
+
+*最后更新: 2025-03-08 01:30*
 *维护者: KINXKit Team*
+
+---
+
+## 桌面应用 (GUI) 相关
+
+### Q: KINXKit 有桌面应用吗？
+
+**A:** 是的！KINXKit 现在提供图形化桌面界面。
+
+**特性**：
+- 🎨 可视化项目创建
+- 🐳 Docker 一键管理
+- 🔧 AI 配置预设
+- 🗄️ 数据库配置
+- 📊 系统诊断可视化
+
+**相关文档**：
+- [GUI/README.md](GUI/README.md) - 开发指南
+- [GUI/INSTALL.md](GUI/INSTALL.md) - 安装指南
+- [GUI/RELEASE.md](GUI/RELEASE.md) - 发布说明
+
+---
+
+### Q: 如何安装桌面应用？
+
+**A:** 两种方式：
+
+**方式 1: 下载安装程序** (推荐用户)
+1. 访问 [GitHub Releases](https://github.com/Cherny0306/KINXKit/releases)
+2. 下载 `KINXKit-Desktop-0.1.0.exe`
+3. 双击安装
+
+**方式 2: 从源码构建** (开发者)
+```bash
+npm run desktop:build
+# 输出: release/KINXKit-Desktop-0.1.0.exe
+```
+
+**安装要求**：
+- Windows 10/11 (64位)
+- 4 GB RAM
+- 300 MB 磁盘空间
+
+---
+
+### Q: 安装时出现 SmartScreen 警告怎么办？
+
+**A:** 这是正常的，因为当前版本未进行数字签名。
+
+**解决方法**：
+1. 点击"更多信息"
+2. 点击"仍要运行"
+3. 或右键文件 → 属性 → 取消阻止
+
+**未来版本**：将添加代码签名证书
+
+---
+
+### Q: 桌面应用和 CLI 版本有什么区别？
+
+**A:** 
+
+| 特性 | CLI 版本 | 桌面应用 |
+|------|----------|----------|
+| 界面 | 命令行 | 图形化 |
+| 易用性 | 需要熟悉命令 | 直观点击 |
+| 可视化 | 文本输出 | Chart.js 图表 |
+| 适用场景 | 脚本自动化 | 日常使用 |
+| 功能完整性 | 100% | 95% |
+
+**推荐**：
+- 开发者/高级用户：CLI 版本
+- 新手/日常使用：桌面应用
+
+---
+
+### Q: 如何构建桌面应用？
+
+**A:** 
+
+```bash
+# 1. 安装 GUI 依赖
+npm run desktop:install
+
+# 2. 构建主项目（如果未构建）
+npm run build
+
+# 3. 构建 Windows 安装程序
+npm run desktop:build
+
+# 输出位置
+# release/KINXKit-Desktop-0.1.0.exe (74 MB)
+```
+
+**开发模式运行**：
+```bash
+npm run desktop:dev
+```
+
+---
+
+### Q: 构建失败，提示符号链接权限错误？
+
+**A:** 已在配置中修复，但如果仍有问题：
+
+**临时解决**：
+```yaml
+# GUI/electron-builder.yml
+win:
+  signAndEditExecutable: false  # 已默认设置
+```
+
+**或以管理员身份运行**：
+- 右键 PowerShell → "以管理员身份运行"
+- 执行构建命令
+
+---
+
+### Q: 如何添加应用图标？
+
+**A:** 
+
+1. 创建 `GUI/build/icon.ico` (256x256)
+2. 取消注释 `electron-builder.yml` 中的配置：
+   ```yaml
+   win:
+     icon: build/icon.ico
+   ```
+3. 重新构建
+
+**图标制作工具**：
+- 在线工具：https://favicon.io
+- ImageMagick：`magick convert icon.png -define icon:auto-resize=256,128,64,48,32,16 icon.ico`
+- GIMP：导出为 ICO 格式
+
+详见：[GUI/build/README.md](GUI/build/README.md)
+
+---
+
+### Q: 桌面应用支持哪些平台？
+
+**A:** 
+
+**当前支持**：
+- ✅ Windows 10/11 (64位)
+
+**计划支持**：
+- 🔜 macOS (Intel + Apple Silicon)
+- 🔜 Linux (.AppImage, .deb)
+
+**原因**：Electron 支持跨平台，优先完成 Windows 版本
+
+---
+
+### Q: 桌面应用占多少磁盘空间？
+
+**A:** 
+
+| 项目 | 大小 |
+|------|------|
+| NSIS 安装程序 | 74 MB |
+| 便携版 | 250 MB |
+| 安装后 | ~300 MB |
+| 用户数据 | ~5 MB |
+
+**优化**：相比 Electron 基础，已优化约 40%
+
+---
+
+### Q: 桌面应用需要网络连接吗？
+
+**A:** 
+
+**必需网络**：
+- ❌ 应用启动（完全离线）
+- ✅ AI 服务配置（首次配置时）
+- ✅ GitHub 集成（推送代码时）
+- ✅ 检查更新（可选）
+
+**离线功能**：
+- ✅ 项目创建（使用本地模板）
+- ✅ Docker 管理
+- ✅ 系统诊断
+- ✅ 日志查看
+
+---
+
+### Q: 如何卸载桌面应用？
+
+**A:** 
+
+**Windows**：
+1. 设置 → 应用 → 已安装的应用
+2. 搜索 "KINXKit Desktop"
+3. 点击"..." → "卸载"
+
+**便携版**：
+1. 关闭应用
+2. 删除应用程序文件夹
+3. 可选：删除用户数据 `%APPDATA%\kinxkit-desktop\`
+
+**注意**：用户数据默认不会删除
+
+---
+
+### Q: 桌面应用有自动更新功能吗？
+
+**A:** 当前版本不支持自动更新。
+
+**手动更新**：
+1. 访问 [GitHub Releases](https://github.com/Cherny0306/KINXKit/releases)
+2. 下载新版本
+3. 运行安装程序覆盖安装
+
+**计划**：0.2.0 版本将添加自动更新功能
+
+---
+
+## 更新时间
+
+**最后更新**: 2026-03-08
+**版本**: 0.3.0 (桌面应用 v0.1.0)

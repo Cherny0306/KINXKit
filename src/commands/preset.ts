@@ -5,7 +5,7 @@
 import { Command } from 'commander';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
-import { ConfigPresetManager, PresetType } from '../core/preset-manager.js';
+import { ConfigPresetManager } from '../core/preset-manager.js';
 import { logger } from '../utils/logger.js';
 
 export function createPresetCommand(): Command {

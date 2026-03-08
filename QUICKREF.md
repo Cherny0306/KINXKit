@@ -37,6 +37,21 @@ npm run build
 npm start
 ```
 
+### 桌面应用 (GUI)
+
+```bash
+# 安装 GUI 依赖
+npm run desktop:install
+
+# 开发模式运行
+npm run desktop:dev
+
+# 构建 Windows 安装程序
+npm run desktop:build
+
+# 输出: release/KINXKit-Desktop-0.1.0.exe (74 MB)
+```
+
 ---
 
 ## 📁 项目结构
@@ -66,6 +81,13 @@ KINXKit/
 │   └── ai-chatbot/        # AI 聊天机器人
 ├── bin/                   # 可执行文件
 │   └── kinx              # CLI 入口
+├── GUI/                   # 桌面应用
+│   ├── main.js           # Electron 主进程
+│   ├── preload.js        # 预加载脚本
+│   ├── renderer/         # 渲染进程
+│   ├── build/            # 构建资源
+│   ├── scripts/          # 构建脚本
+│   └── electron-builder.yml  # 构建配置
 ├── tests/                 # 测试文件
 ├── docs/                  # 文档
 ├── dist/                  # 编译输出
@@ -140,6 +162,43 @@ git push
 
 # 查看提交历史
 git log --oneline
+```
+
+### KINX CLI 命令
+
+```bash
+# 创建新项目
+node dist/index.js create my-project
+
+# Docker 管理
+node dist/index.js up              # 启动服务
+node dist/index.js down            # 停止服务
+node dist/index.js status          # 查看状态
+node dist/index.js logs            # 查看日志
+
+# GitHub 集成
+node dist/index.js github login    # GitHub 登录
+node dist/index.js github status   # 查看认证状态
+node dist/index.js github create   # 创建仓库
+
+# 配置管理
+node dist/index.js config api      # 配置 API 密钥
+node dist/index.js config database # 配置数据库
+node dist/index.js doctor          # 环境诊断
+
+# 问题诊断和修复 (Phase 3)
+node dist/index.js fix diagnose    # 完整系统诊断
+node dist/index.js fix docker      # Docker 问题诊断
+node dist/index.js fix network     # 网络问题诊断
+node dist/index.js fix deps        # 依赖问题诊断
+
+# 配置预设 (Phase 3)
+node dist/index.js preset list --type ai        # 列出 AI 服务预设
+node dist/index.js preset list --type database  # 列出数据库预设
+node dist/index.js preset search <query>        # 搜索预设
+node dist/index.js preset ai <service>          # 应用 AI 服务配置
+node dist/index.js preset database <db>         # 应用数据库配置
+node dist/index.js preset recommend <type>      # 获取推荐配置
 ```
 
 ---

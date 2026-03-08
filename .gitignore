@@ -54,3 +54,6 @@ Thumbs.db
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+release/
+GUI/node_modules/
+GUI/dist/

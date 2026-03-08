@@ -2,7 +2,7 @@
  * 配置管理器测试
  */
 
-import { ConfigManager, ApiConfig, DatabaseConfig, EnvConfig } from '../../src/core/config.js';
+import { ConfigManager, EnvConfig } from '../../src/core/config.js';
 import { promises as fs } from 'fs';
 import path from 'path';
 import os from 'os';
@@ -11,10 +11,11 @@ describe('ConfigManager', () => {
   let manager: ConfigManager;
   let testDir: string;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     manager = new ConfigManager();
     // 创建临时测试目录
     testDir = path.join(os.tmpdir(), `kinx-test-${Date.now()}`);
+    await fs.mkdir(testDir, { recursive: true });
   });
 
   afterEach(async () => {
@@ -129,6 +130,7 @@ describe('ConfigManager', () => {
 
     it('应该支持数据库配置', async () => {
       const config: EnvConfig = {
+        apis: [],
         database: {
           type: 'postgresql',
           host: 'localhost',

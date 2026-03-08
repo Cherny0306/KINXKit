@@ -33,7 +33,7 @@ describe('EnvironmentDetector', () => {
       const env = await detector.detect();
 
       if (env.docker) {
-        expect(env.docker.available).toBe(true);
+        expect(env.docker.installed).toBe(true);
         expect(env.docker.version).toBeDefined();
       }
     });
@@ -42,7 +42,7 @@ describe('EnvironmentDetector', () => {
       const env = await detector.detect();
 
       if (env.git) {
-        expect(env.git.available).toBe(true);
+        expect(env.git.installed).toBe(true);
         expect(env.git.version).toBeDefined();
       }
     });

@@ -340,9 +340,10 @@ export class CustomTemplateManager {
     await fs.mkdir(projectPath, { recursive: true });
 
     // 编译并复制文件
+    const category = template.categories[0] || 'default';
     const templatePath = path.join(
       template.name.startsWith('user:') ? this.userTemplatesDir : this.templatesDir,
-      template.categories[0],
+      category,
       template.name,
       'files'
     );
@@ -396,7 +397,9 @@ export class CustomTemplateManager {
         packageJson.dependencies = {};
         template.dependencies.forEach(dep => {
           const [name, version] = dep.split('@');
-          packageJson.dependencies[name] = version || '*';
+          if (name) {
+            packageJson.dependencies[name] = version || '*';
+          }
         });
       }
 
@@ -404,7 +407,9 @@ export class CustomTemplateManager {
         packageJson.devDependencies = {};
         template.devDependencies.forEach(dep => {
           const [name, version] = dep.split('@');
-          packageJson.devDependencies[name] = version || '*';
+          if (name) {
+            packageJson.devDependencies[name] = version || '*';
+          }
         });
       }
 
@@ -495,9 +500,10 @@ export class CustomTemplateManager {
     const updatedMetadata = { ...template, ...metadata };
 
     // 确定模板路径
+    const category = template.categories[0] || 'default';
     const templatePath = path.join(
       this.userTemplatesDir,
-      template.categories[0],
+      category,
       name
     );
 
@@ -530,9 +536,10 @@ export class CustomTemplateManager {
     }
 
     // 只能删除用户模板
+    const category = template.categories[0] || 'default';
     const templatePath = path.join(
       this.userTemplatesDir,
-      template.categories[0],
+      category,
       name
     );
 
@@ -553,9 +560,10 @@ export class CustomTemplateManager {
       throw new Error(`未找到模板: ${name}`);
     }
 
+    const category = template.categories[0] || 'default';
     const templatePath = path.join(
       this.userTemplatesDir,
-      template.categories[0],
+      category,
       name
     );
 
@@ -591,9 +599,10 @@ export class CustomTemplateManager {
       const metadata = JSON.parse(await fs.readFile(metadataPath, 'utf-8'));
 
       // 确定目标路径
+      const category = metadata.categories[0] || 'default';
       const targetPath = path.join(
         this.userTemplatesDir,
-        metadata.categories[0],
+        category,
         metadata.name
       );
 

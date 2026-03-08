@@ -11,6 +11,88 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+#### 桌面应用 (GUI) - 发布准备
+- **构建配置优化**
+  - 修复符号链接权限问题（禁用开发版代码签名）
+  - 优化 Electron Builder 配置（支持 NSIS 和便携版）
+  - 添加构建前检查脚本 (`GUI/scripts/pre-build-check.js`)
+
+- **文档完善**
+  - `GUI/README.md` - 桌面应用开发指南
+  - `GUI/RELEASE.md` - 发布说明和更新日志
+  - `GUI/INSTALL.md` - 用户安装指南
+  - `GUI/build/README.md` - 构建资源说明
+
+- **构建脚本增强**
+  - 添加 `prebuild` 钩子自动运行检查
+  - 添加 `build:dir` 用于目录构建（非打包）
+  - 改进错误提示和用户反馈
+
+- **主项目 README 更新**
+  - 添加桌面应用快速开始指南
+  - 链接到详细的 GUI 文档
+  - 说明构建输出位置
+
+#### 测试和调试 (P1 优先级)
+- **测试框架完善**
+  - Jest 配置优化（ESM 模式支持）
+  - 修复多个 Jest 配置文件冲突
+  - 测试脚本更新（支持 `--experimental-vm-modules`）
+
+- **核心模块测试**
+  - `tests/core/detector.test.ts` - 环境检测器测试（12 个测试用例）
+  - `tests/core/config.test.ts` - 配置管理器测试（21 个测试用例，100% 通过）
+  - `tests/nlp/classifier.test.ts` - 意图分类器测试（20 个测试用例）
+
+- **Phase 3 模块测试**
+  - `tests/core/detector-issues.test.ts` - 问题诊断系统测试（11 个测试组）
+  - `tests/core/preset-manager.test.ts` - 配置预设管理测试（10 个测试组）
+  - `tests/core/template-manager.test.ts` - 自定义模板管理测试（9 个测试组）
+
+- **测试文档**
+  - `TESTING.md` - 完整的测试指南
+  - 测试覆盖率目标：≥ 70%
+  - 测试最佳实践文档
+  - CI/CD 集成示例
+
+#### Phase 3 增强功能 (100% ✅)
+- **问题诊断和自动修复系统** - 完整的环境诊断和修复能力
+  - Docker 问题诊断（安装、运行、网络、权限）
+  - 网络问题诊断（连接、DNS、代理、防火墙）
+  - 依赖问题诊断（Node.js、Python、Git）
+  - 权限问题诊断（文件系统、Git 仓库）
+  - 配置问题诊断（环境变量、配置文件）
+  - 自动修复功能（执行修复命令、提供修复建议）
+  - 650+ 行检测器代码 (`src/core/detector-issues.ts`)
+
+- **配置预设管理系统** - 快速配置生成
+  - 6 个 AI 服务预设（OpenAI、DeepSeek、智谱 AI、Anthropic、Azure OpenAI、Moonshot AI）
+  - 5 个数据库预设（PostgreSQL、MySQL、MongoDB、SQLite、Redis）
+  - API 密钥格式验证
+  - 配置文件生成（.env、docker-compose.yml）
+  - 预设搜索和推荐功能
+  - 700+ 行预设管理器代码 (`src/core/preset-manager.ts`)
+
+- **自定义模板管理系统** - 完整的模板管理能力
+  - 模板 CRUD 操作（创建、读取、更新、删除）
+  - 模板导入导出功能
+  - Handlebars 模板编译和渲染
+  - 模板验证和变量校验
+  - 按分类和标签搜索模板
+  - 650+ 行模板管理器代码 (`src/core/template-manager.ts`)
+
+- **新的 CLI 命令**
+  - `kinx fix diagnose` - 运行完整系统诊断
+  - `kinx fix docker` - 诊断 Docker 问题
+  - `kinx fix network` - 诊断网络问题
+  - `kinx fix deps` - 诊断依赖问题
+  - `kinx preset list --type ai` - 列出所有 AI 服务预设
+  - `kinx preset list --type database` - 列出所有数据库预设
+  - `kinx preset search <query>` - 搜索预设
+  - `kinx preset ai <service>` - 应用 AI 服务配置
+  - `kinx preset database <db>` - 应用数据库配置
+  - `kinx preset recommend <type>` - 获取推荐配置
+
 #### Phase 2 核心功能 (65% → 85%)
 - **项目模板系统** - 新增 2 个完整的项目模板
 

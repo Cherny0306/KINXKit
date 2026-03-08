@@ -2,8 +2,6 @@
  * 配置预设系统
  */
 
-import { promises as fs } from 'fs';
-import path from 'path';
 import { logger } from '../utils/logger.js';
 
 /**
@@ -53,11 +51,11 @@ export interface DatabasePreset {
   defaultPort: number;
   dockerImage?: string;
   envVars: {
-    host: string;
-    port: string;
-    database: string;
-    username: string;
-    password: string;
+    host?: string;
+    port?: string;
+    database?: string;
+    username?: string;
+    password?: string;
     connectionString?: string;
   };
   features: string[];
@@ -488,9 +486,15 @@ export class ConfigPresetManager {
       composeLines.push(`    ports:`);
       composeLines.push(`      - "${port}:${preset.defaultPort}"`);
       composeLines.push(`    environment:`);
-      composeLines.push(`      ${preset.envVars.username.toUpperCase()}: ${username}`);
-      composeLines.push(`      ${preset.envVars.password.toUpperCase()}: ${password}`);
-      composeLines.push(`      ${preset.envVars.database.toUpperCase()}: ${database}`);
+      if (preset.envVars.username) {
+        composeLines.push(`      ${preset.envVars.username.toUpperCase()}: ${username}`);
+      }
+      if (preset.envVars.password) {
+        composeLines.push(`      ${preset.envVars.password.toUpperCase()}: ${password}`);
+      }
+      if (preset.envVars.database) {
+        composeLines.push(`      ${preset.envVars.database.toUpperCase()}: ${database}`);
+      }
       composeLines.push(`    volumes:`);
       composeLines.push(`      - ${preset.name}_data:/data`);
       composeLines.push(`    restart: unless-stopped`);
@@ -584,9 +588,12 @@ export class ConfigPresetManager {
 
       // 验证 Base URL
       if (preset.validation.baseUrlRequired) {
-        const baseUrl = config[preset.envVars.baseUrl];
-        if (!baseUrl) {
-          errors.push(`缺少 Base URL: ${preset.envVars.baseUrl}`);
+        const baseUrlKey = preset.envVars.baseUrl;
+        if (baseUrlKey) {
+          const baseUrl = config[baseUrlKey];
+          if (!baseUrl) {
+            errors.push(`缺少 Base URL: ${baseUrlKey}`);
+          }
         }
       }
     } else if (presetType === PresetType.DATABASE) {
@@ -597,13 +604,13 @@ export class ConfigPresetManager {
 
       // 验证必需的环境变量
       if (preset.name !== 'sqlite') {
-        if (!config[preset.envVars.host]) {
+        if (preset.envVars.host && !config[preset.envVars.host]) {
           errors.push(`缺少主机地址: ${preset.envVars.host}`);
         }
-        if (!config[preset.envVars.username]) {
+        if (preset.envVars.username && !config[preset.envVars.username]) {
           errors.push(`缺少用户名: ${preset.envVars.username}`);
         }
-        if (!config[preset.envVars.password]) {
+        if (preset.envVars.password && !config[preset.envVars.password]) {
           errors.push(`缺少密码: ${preset.envVars.password}`);
         }
       }

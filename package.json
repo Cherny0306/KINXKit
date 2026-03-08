@@ -20,7 +20,10 @@
     "format:check": "prettier --check \"src/**/*.ts\"",
     "clean": "rimraf dist",
     "prepublishOnly": "npm run clean && npm run build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "desktop:install": "cd gui && npm install",
+    "desktop:dev": "npm run build && cd gui && npm start",
+    "desktop:build": "npm run build && cd gui && npm run build"
   },
   "keywords": [
     "cli",

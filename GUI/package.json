@@ -1,0 +1,20 @@
+{
+  "name": "kinxkit-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "description": "KINXKit Windows Desktop GUI",
+  "author": "KINXKit Team",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "node scripts/pre-build-check.js",
+    "start": "electron .",
+    "build": "electron-builder -c electron-builder.yml",
+    "build:dir": "electron-builder --dir -c electron-builder.yml",
+    "dist": "npm run build"
+  },
+  "devDependencies": {
+    "electron": "^29.3.0",
+    "electron-builder": "^24.6.4"
+  }
+}

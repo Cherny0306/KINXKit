@@ -6,8 +6,7 @@ import { Command } from 'commander';
 import chalk from 'chalk';
 import { IssueDetector, IssueSeverity } from '../core/detector-issues.js';
 import { logger } from '../utils/logger.js';
-
-const inquirer = await import('inquirer');
+import inquirer from 'inquirer';
 
 export function createFixCommand(): Command {
   const command = new Command('fix');
@@ -39,7 +38,7 @@ export function createFixCommand(): Command {
         console.log('');
         console.log(chalk.cyan(`发现 ${fixableIssues.length} 个可自动修复的问题`));
 
-        const { autoFix } = await inquirer.default.prompt([
+        const { autoFix } = await inquirer.prompt([
           {
             type: 'confirm',
             name: 'autoFix',

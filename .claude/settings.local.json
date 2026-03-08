@@ -22,7 +22,11 @@
       "Bash(./create-and-push.sh:*)",
       "Bash(cmd.exe:*)",
       "Bash(node:*)",
-      "Bash(gh release:*)"
+      "Bash(gh release:*)",
+      "Bash(npm test:*)",
+      "Bash(npm list:*)",
+      "Bash(/tmp/context_update.txt:*)",
+      "Bash(grep:*)"
     ]
   }
 }

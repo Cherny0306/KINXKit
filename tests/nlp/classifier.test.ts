@@ -2,7 +2,8 @@
  * 意图分类器测试
  */
 
-import { IntentClassifier, ProjectType } from '../../src/nlp/classifier.js';
+import { IntentClassifier } from '../../src/nlp/classifier.js';
+import { ProjectType } from '../../src/types.js';
 
 describe('IntentClassifier', () => {
   let classifier: IntentClassifier;
