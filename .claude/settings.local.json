@@ -26,7 +26,10 @@
       "Bash(npm test:*)",
       "Bash(npm list:*)",
       "Bash(/tmp/context_update.txt:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(git rm:*)",
+      "Bash(gh:*)",
+      "Bash(git tag:*)"
     ]
   }
 }

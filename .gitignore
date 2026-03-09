@@ -57,3 +57,10 @@ pnpm-lock.yaml
 release/
 GUI/node_modules/
 GUI/dist/
+
+# 发布制品（大型文件，通过 GitHub Release 分发）
+release-artifacts/
+release.zip
+*.exe
+*.dmg
+*.AppImage
