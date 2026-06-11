@@ -1,0 +1,14 @@
+{
+  "id": "bb3811df-68a2-4004-86f4-515268cc3b5b",
+  "status": "succeeded",
+  "createdAt": "2026-06-11T09:50:54.442Z",
+  "instructions": "请基于公开价格查价，优先匹配货号与规格；如超出限价请标红并给出原因。",
+  "siteIds": [
+    "beyotime",
+    "mce",
+    "jd"
+  ],
+  "items": [],
+  "errors": [],
+  "finishedAt": "2026-06-11T09:50:54.444Z"
+}

@@ -1,8 +1,8 @@
 {
   "model": {
-    "baseUrl": "https://api.openai.com/v1",
-    "apiKey": "",
-    "model": "gpt-4o-mini"
+    "baseUrl": "https://open.bigmodel.cn/api/paas/v4/",
+    "apiKey": "0b72fb0666f84536a5cd7a129de55e16.crIDrXFoUqt4E0Me",
+    "model": "glm-5.1"
   },
   "scrape": {
     "timeoutMs": 20000,
