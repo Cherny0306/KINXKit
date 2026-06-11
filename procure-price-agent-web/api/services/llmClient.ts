@@ -3,7 +3,8 @@ import { fetchJson } from '../utils/http.js'
 
 function buildEndpoint(baseUrl: string) {
   const b = baseUrl.replace(/\/+$/, '')
-  if (b.endsWith('/v1')) return `${b}/chat/completions`
+  if (b.endsWith('/chat/completions')) return b
+  if (b.endsWith('/v1') || b.endsWith('/v4')) return `${b}/chat/completions`
   return `${b}/v1/chat/completions`
 }
 
@@ -38,4 +39,3 @@ export async function chatOnce(input: {
   if (!content) throw new Error('模型未返回有效内容')
   return content
 }
-
