@@ -65,6 +65,20 @@ export interface RunItemResult {
   }
 }
 
+export type RunSiteState = 'idle' | 'ok' | 'partial' | 'failed'
+
+export interface RunSiteSummary {
+  siteId: SiteId
+  state: RunSiteState
+  totalQueries: number
+  successCount: number
+  emptyCount: number
+  timeoutCount: number
+  errorCount: number
+  cachedCount: number
+  lastMessage?: string
+}
+
 export interface RunRecord {
   id: string
   status: RunStatus
@@ -72,10 +86,13 @@ export interface RunRecord {
   finishedAt?: string
   instructions: string
   siteIds: SiteId[]
+  siteSummaries: RunSiteSummary[]
   items: RunItemResult[]
   errors: {
     siteId: SiteId
+    itemName?: string
+    query?: string
+    type?: 'timeout' | 'network' | 'parse' | 'blocked' | 'unknown'
     message: string
   }[]
 }
-

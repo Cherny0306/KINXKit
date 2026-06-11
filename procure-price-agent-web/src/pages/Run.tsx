@@ -115,6 +115,39 @@ export default function Run() {
 
       <Card>
         <CardHeader>
+          <div className="text-sm font-semibold">站点执行状态</div>
+        </CardHeader>
+        <CardContent className="grid grid-cols-1 gap-3 md:grid-cols-3">
+          {run.siteSummaries.map((site) => {
+            const tone =
+              site.state === 'ok' ? 'good' : site.state === 'failed' ? 'bad' : site.state === 'partial' ? 'warn' : 'neutral'
+            const label =
+              site.state === 'ok' ? '正常' : site.state === 'failed' ? '失败' : site.state === 'partial' ? '部分降级' : '未执行'
+            return (
+              <div key={site.siteId} className="rounded-lg border border-zinc-200 bg-white p-3">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="font-medium">{site.siteId}</div>
+                  <Badge tone={tone}>{label}</Badge>
+                </div>
+                <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-zinc-600">
+                  <div>请求数：{site.totalQueries}</div>
+                  <div>成功：{site.successCount}</div>
+                  <div>空结果：{site.emptyCount}</div>
+                  <div>超时：{site.timeoutCount}</div>
+                  <div>错误：{site.errorCount}</div>
+                  <div>缓存：{site.cachedCount}</div>
+                </div>
+                {site.lastMessage ? (
+                  <div className="mt-2 rounded-md bg-zinc-50 px-2 py-1 text-xs text-zinc-700">{site.lastMessage}</div>
+                ) : null}
+              </div>
+            )
+          })}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
           <div className="text-sm font-semibold">推荐清单</div>
         </CardHeader>
         <CardContent className="overflow-auto">
@@ -265,7 +298,10 @@ export default function Run() {
             {run.errors.slice(0, 20).map((e, i) => (
               <div key={i} className="rounded-lg bg-zinc-50 px-3 py-2">
                 <span className="font-mono text-xs text-zinc-500">{e.siteId}</span>
+                {e.type ? <span className="ml-2 text-xs text-zinc-400">[{e.type}]</span> : null}
+                {e.itemName ? <span className="ml-2 text-xs text-zinc-400">{e.itemName}</span> : null}
                 <span className="ml-2">{e.message}</span>
+                {e.query ? <div className="mt-1 text-xs text-zinc-500">查询词：{e.query}</div> : null}
               </div>
             ))}
           </CardContent>
@@ -274,4 +310,3 @@ export default function Run() {
     </div>
   )
 }
-

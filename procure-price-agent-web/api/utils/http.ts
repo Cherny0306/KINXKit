@@ -14,6 +14,11 @@ export async function fetchText(
     })
     const text = await res.text()
     return { status: res.status, text, finalUrl: res.url }
+  } catch (error) {
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new Error(`timeout after ${opts.timeoutMs}ms`)
+    }
+    throw error
   } finally {
     clearTimeout(timeout)
   }
@@ -26,4 +31,3 @@ export async function fetchJson<T>(
   const { status, text, finalUrl } = await fetchText(url, opts)
   return { status, json: JSON.parse(text) as T, finalUrl }
 }
-

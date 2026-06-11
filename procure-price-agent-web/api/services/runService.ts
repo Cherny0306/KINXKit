@@ -1,4 +1,11 @@
-import type { AppSettings, ProcurementItemInput, RunItemResult, RunRecord, SiteId } from '../../shared/types'
+import type {
+  AppSettings,
+  ProcurementItemInput,
+  RunItemResult,
+  RunRecord,
+  RunSiteSummary,
+  SiteId,
+} from '../../shared/types'
 import { getConnectors } from '../connectors/index.js'
 import { parseProcurementFile } from '../parsers/procurement.js'
 import { TtlCache } from '../storage/cache.js'
@@ -60,6 +67,77 @@ function normalizeInputItems(items: ProcurementItemInput[]): ProcurementItemInpu
   }))
 }
 
+function createInitialSiteSummaries(siteIds: SiteId[]): RunSiteSummary[] {
+  return siteIds.map((siteId) => ({
+    siteId,
+    state: 'idle',
+    totalQueries: 0,
+    successCount: 0,
+    emptyCount: 0,
+    timeoutCount: 0,
+    errorCount: 0,
+    cachedCount: 0,
+  }))
+}
+
+function getSiteSummary(run: RunRecord, siteId: SiteId): RunSiteSummary {
+  const summary = run.siteSummaries.find((s) => s.siteId === siteId)
+  if (!summary) {
+    const created: RunSiteSummary = {
+      siteId,
+      state: 'idle',
+      totalQueries: 0,
+      successCount: 0,
+      emptyCount: 0,
+      timeoutCount: 0,
+      errorCount: 0,
+      cachedCount: 0,
+    }
+    run.siteSummaries.push(created)
+    return created
+  }
+  return summary
+}
+
+function classifyConnectorError(error: unknown): {
+  type: 'timeout' | 'network' | 'parse' | 'blocked' | 'unknown'
+  message: string
+} {
+  const message = error instanceof Error ? error.message : '未知错误'
+  const lower = message.toLowerCase()
+  if (lower.includes('abort') || lower.includes('timeout') || lower.includes('超时')) {
+    return { type: 'timeout', message: '站点响应超时，已跳过该站点' }
+  }
+  if (lower.includes('403') || lower.includes('forbidden') || lower.includes('验证') || lower.includes('waf')) {
+    return { type: 'blocked', message: '站点触发了访问验证或风控，已降级为跳过' }
+  }
+  if (lower.includes('json') || lower.includes('parse') || lower.includes('unexpected token')) {
+    return { type: 'parse', message: '站点返回内容结构异常，暂时无法解析' }
+  }
+  if (lower.includes('fetch') || lower.includes('network') || lower.includes('econn') || lower.includes('socket')) {
+    return { type: 'network', message: '网络请求失败，建议稍后重试' }
+  }
+  return { type: 'unknown', message }
+}
+
+function finalizeSiteStates(run: RunRecord) {
+  for (const summary of run.siteSummaries) {
+    if (summary.totalQueries === 0) {
+      summary.state = 'idle'
+      continue
+    }
+    if (summary.successCount > 0 && summary.errorCount === 0 && summary.timeoutCount === 0) {
+      summary.state = summary.emptyCount > 0 ? 'partial' : 'ok'
+      continue
+    }
+    if (summary.successCount === 0 && (summary.errorCount > 0 || summary.timeoutCount > 0)) {
+      summary.state = 'failed'
+      continue
+    }
+    summary.state = 'partial'
+  }
+}
+
 export async function createRun(input: CreateRunInput): Promise<CreateRunOutput> {
   const settings = await loadSettings()
   const runId = newRunId()
@@ -79,6 +157,7 @@ export async function createRun(input: CreateRunInput): Promise<CreateRunOutput>
     createdAt: new Date().toISOString(),
     instructions: input.instructions ?? '',
     siteIds: enabledSites,
+    siteSummaries: createInitialSiteSummaries(enabledSites),
     items: [],
     errors: [],
   }
@@ -93,9 +172,16 @@ export async function createRun(input: CreateRunInput): Promise<CreateRunOutput>
 
     await Promise.all(
       connectors.map(async (c) => {
+        const summary = getSiteSummary(run, c.siteId)
+        summary.totalQueries += 1
         const key = `${c.siteId}:${query}:${item.spec ?? ''}`
         const cached = cache.get(key)
         if (cached) {
+          summary.cachedCount += 1
+          summary.successCount += cached.candidates.length > 0 ? 1 : 0
+          summary.emptyCount += cached.candidates.length > 0 ? 0 : 1
+          summary.lastMessage =
+            cached.candidates.length > 0 ? '命中缓存并返回候选报价' : '命中缓存，但无可用候选报价'
           perItemCandidates.push(...cached.candidates)
           perItemEvidences.push(...cached.evidences)
           return
@@ -108,11 +194,27 @@ export async function createRun(input: CreateRunInput): Promise<CreateRunOutput>
             maxCandidates: settings.scrape.maxCandidatesPerSite,
           })
           cache.set(key, { candidates: res.candidates, evidences: res.evidences })
+          if (res.candidates.length > 0) {
+            summary.successCount += 1
+            summary.lastMessage = `成功返回 ${res.candidates.length} 条候选报价`
+          } else {
+            summary.emptyCount += 1
+            summary.lastMessage = '请求成功，但未解析到可用公开价格'
+          }
           perItemCandidates.push(...res.candidates)
           perItemEvidences.push(...res.evidences)
         } catch (e) {
-          const message = e instanceof Error ? e.message : '未知错误'
-          run.errors.push({ siteId: c.siteId, message })
+          const classified = classifyConnectorError(e)
+          if (classified.type === 'timeout') summary.timeoutCount += 1
+          else summary.errorCount += 1
+          summary.lastMessage = classified.message
+          run.errors.push({
+            siteId: c.siteId,
+            itemName: item.rawName,
+            query,
+            type: classified.type,
+            message: classified.message,
+          })
         }
       }),
     )
@@ -129,6 +231,7 @@ export async function createRun(input: CreateRunInput): Promise<CreateRunOutput>
   }
 
   run.status = run.errors.length > 0 ? 'succeeded' : 'succeeded'
+  finalizeSiteStates(run)
   run.finishedAt = new Date().toISOString()
   await saveRun(run)
 

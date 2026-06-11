@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Card, CardContent, CardHeader } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
@@ -25,6 +25,12 @@ export default function Home() {
   const [selectedSites, setSelectedSites] = useState<SiteId[]>(defaultSites)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (defaultSites.length > 0 && selectedSites.length === 0) {
+      setSelectedSites(defaultSites)
+    }
+  }, [defaultSites, selectedSites.length])
 
   async function onSubmit() {
     if (!file) return
@@ -132,7 +138,12 @@ export default function Home() {
             {error ? (
               <div className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
                 <TriangleAlert className="mt-0.5 size-4" />
-                <div className="min-w-0">{error}</div>
+                <div className="min-w-0">
+                  <div>{error}</div>
+                  <div className="mt-1 text-xs text-red-700/80">
+                    建议先重试一次；若仍失败，可先取消 `京东` 等较慢站点，或等待本地开发服务稳定后再试。
+                  </div>
+                </div>
               </div>
             ) : null}
 
