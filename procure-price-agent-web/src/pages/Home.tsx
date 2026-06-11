@@ -4,10 +4,10 @@ import { Card, CardContent, CardHeader } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { Textarea } from '@/components/ui/Textarea'
 import { Badge } from '@/components/ui/Badge'
-import { apiPostForm } from '@/utils/api'
+import { apiGet, apiPostForm } from '@/utils/api'
 import { useAppStore } from '@/store/useAppStore'
 import type { RunRecord, SiteId } from '../../shared/types'
-import { FileSpreadsheet, Play, TriangleAlert } from 'lucide-react'
+import { ExternalLink, FileSpreadsheet, Play, TriangleAlert } from 'lucide-react'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -25,6 +25,8 @@ export default function Home() {
   const [selectedSites, setSelectedSites] = useState<SiteId[]>(defaultSites)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [activeRunId, setActiveRunId] = useState<string | null>(null)
+  const lastRun = useAppStore((s) => s.lastRun)
 
   useEffect(() => {
     if (defaultSites.length > 0 && selectedSites.length === 0) {
@@ -46,13 +48,40 @@ export default function Home() {
         form,
       )
       setLastRun(resp.run)
-      navigate(`/runs/${resp.runId}`)
+      setActiveRunId(resp.runId)
     } catch (e) {
       setError(e instanceof Error ? e.message : '提交失败')
     } finally {
       setSubmitting(false)
     }
   }
+
+  useEffect(() => {
+    if (!activeRunId) return
+    let cancelled = false
+    const timer = setInterval(async () => {
+      try {
+        const run = await apiGet<RunRecord>(`/api/runs/${activeRunId}`)
+        if (cancelled) return
+        setLastRun(run)
+        if (run.status === 'succeeded' || run.status === 'failed') {
+          clearInterval(timer)
+        }
+      } catch {
+        if (!cancelled) {
+          clearInterval(timer)
+        }
+      }
+    }, 1500)
+
+    return () => {
+      cancelled = true
+      clearInterval(timer)
+    }
+  }, [activeRunId, setLastRun])
+
+  const progress =
+    lastRun && lastRun.totalItems > 0 ? Math.round((lastRun.completedItems / lastRun.totalItems) * 100) : 0
 
   return (
     <div className="grid grid-cols-12 gap-6">
@@ -161,6 +190,77 @@ export default function Home() {
       </div>
 
       <div className="col-span-12 lg:col-span-7">
+        {lastRun && activeRunId ? (
+          <Card className="mb-6">
+            <CardHeader>
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <div className="text-sm font-semibold">实时执行进度</div>
+                  <div className="mt-0.5 text-xs text-zinc-500">
+                    任务ID：{lastRun.id} · 状态：{lastRun.status}
+                  </div>
+                </div>
+                <Button type="button" variant="secondary" onClick={() => navigate(`/runs/${lastRun.id}`)}>
+                  <ExternalLink className="size-4" />
+                  打开结果页
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <div className="mb-2 flex items-center justify-between text-xs text-zinc-600">
+                  <span>
+                    已完成 {lastRun.completedItems}/{lastRun.totalItems} 个物料
+                  </span>
+                  <span>{progress}%</span>
+                </div>
+                <div className="h-2 overflow-hidden rounded-full bg-zinc-100">
+                  <div
+                    className="h-full rounded-full bg-zinc-900 transition-all"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+                {lastRun.siteSummaries.map((site) => {
+                  const tone =
+                    site.state === 'ok'
+                      ? 'good'
+                      : site.state === 'failed'
+                        ? 'bad'
+                        : site.state === 'partial'
+                          ? 'warn'
+                          : 'neutral'
+                  return (
+                    <div key={site.siteId} className="rounded-lg border border-zinc-200 bg-white p-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="text-sm font-medium">{site.siteId}</div>
+                        <Badge tone={tone}>
+                          {site.state === 'ok'
+                            ? '成功'
+                            : site.state === 'failed'
+                              ? '失败'
+                              : site.state === 'partial'
+                                ? '降级'
+                                : '等待中'}
+                        </Badge>
+                      </div>
+                      <div className="mt-2 flex flex-wrap gap-2 text-xs text-zinc-600">
+                        <span>成功 {site.successCount}</span>
+                        <span>空结果 {site.emptyCount}</span>
+                        <span>超时 {site.timeoutCount}</span>
+                        <span>错误 {site.errorCount}</span>
+                      </div>
+                      {site.lastMessage ? (
+                        <div className="mt-2 rounded-md bg-zinc-50 px-2 py-1 text-xs text-zinc-700">{site.lastMessage}</div>
+                      ) : null}
+                    </div>
+                  )
+                })}
+              </div>
+            </CardContent>
+          </Card>
+        ) : null}
         <Card>
           <CardHeader>
             <div className="text-sm font-semibold">使用提示</div>

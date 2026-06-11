@@ -1,7 +1,7 @@
 import { Router, type Request, type Response } from 'express'
 import multer from 'multer'
 import type { SiteId } from '../../shared/types'
-import { createRun } from '../services/runService.js'
+import { startRun } from '../services/runService.js'
 import { loadRun, loadRunCsv, loadRunReport } from '../storage/store.js'
 
 const router = Router()
@@ -24,7 +24,7 @@ router.post('/', upload.single('file'), async (req: Request, res: Response) => {
           .filter(Boolean)
       : undefined
 
-    const result = await createRun({
+    const result = await startRun({
       file: { filename: file.originalname, buffer: file.buffer },
       instructions,
       siteIds: siteIds as SiteId[] | undefined,

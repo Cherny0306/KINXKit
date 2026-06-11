@@ -19,10 +19,8 @@ export interface CreateRunInput {
   siteIds?: SiteId[]
 }
 
-export interface CreateRunOutput {
+export interface StartRunOutput {
   run: RunRecord
-  reportMd: string
-  csv: string
   parserWarnings: string[]
 }
 
@@ -138,7 +136,14 @@ function finalizeSiteStates(run: RunRecord) {
   }
 }
 
-export async function createRun(input: CreateRunInput): Promise<CreateRunOutput> {
+interface PreparedRunContext {
+  settings: AppSettings
+  normalizedItems: ProcurementItemInput[]
+  run: RunRecord
+  parserWarnings: string[]
+}
+
+async function prepareRun(input: CreateRunInput): Promise<PreparedRunContext> {
   const settings = await loadSettings()
   const runId = newRunId()
 
@@ -146,25 +151,51 @@ export async function createRun(input: CreateRunInput): Promise<CreateRunOutput>
   const normalized = normalizeInputItems(items)
 
   const enabledSites = (input.siteIds?.length ? input.siteIds : settings.enabledSites) as SiteId[]
-  const connectors = getConnectors(enabledSites)
-  const cache = new TtlCache<{ candidates: RunItemResult['candidates']; evidences: RunItemResult['evidences'] }>(
-    settings.scrape.cacheTtlMinutes * 60 * 1000,
-  )
 
   const run: RunRecord = {
     id: runId,
-    status: 'running',
+    status: 'queued',
     createdAt: new Date().toISOString(),
     instructions: input.instructions ?? '',
     siteIds: enabledSites,
+    totalItems: normalized.length,
+    completedItems: 0,
     siteSummaries: createInitialSiteSummaries(enabledSites),
     items: [],
     errors: [],
   }
 
   await saveRun(run)
+  return { settings, normalizedItems: normalized, run, parserWarnings: warnings }
+}
 
-  for (const item of normalized) {
+export async function startRun(input: CreateRunInput): Promise<StartRunOutput> {
+  const prepared = await prepareRun(input)
+  void executeRun(prepared).catch(async (error) => {
+    prepared.run.status = 'failed'
+    prepared.run.finishedAt = new Date().toISOString()
+    prepared.run.errors.push({
+      siteId: prepared.run.siteIds[0] ?? 'beyotime',
+      type: 'unknown',
+      message: error instanceof Error ? error.message : '任务执行失败',
+    })
+    finalizeSiteStates(prepared.run)
+    await saveRun(prepared.run)
+  })
+  return { run: prepared.run, parserWarnings: prepared.parserWarnings }
+}
+
+async function executeRun(prepared: PreparedRunContext): Promise<void> {
+  const { settings, normalizedItems, run } = prepared
+  const connectors = getConnectors(run.siteIds)
+  const cache = new TtlCache<{ candidates: RunItemResult['candidates']; evidences: RunItemResult['evidences'] }>(
+    settings.scrape.cacheTtlMinutes * 60 * 1000,
+  )
+
+  run.status = 'running'
+  await saveRun(run)
+
+  for (const item of normalizedItems) {
     const query = item.catNo || item.rawName
     const perItemCandidates: RunItemResult['candidates'] = []
     const perItemEvidences: RunItemResult['evidences'] = []
@@ -227,10 +258,12 @@ export async function createRun(input: CreateRunInput): Promise<CreateRunOutput>
       warnings: perItemWarnings,
     })
     run.items.push(result)
+    run.completedItems += 1
+    finalizeSiteStates(run)
     await saveRun(run)
   }
 
-  run.status = run.errors.length > 0 ? 'succeeded' : 'succeeded'
+  run.status = 'succeeded'
   finalizeSiteStates(run)
   run.finishedAt = new Date().toISOString()
   await saveRun(run)
@@ -238,6 +271,4 @@ export async function createRun(input: CreateRunInput): Promise<CreateRunOutput>
   const reportMd = await generateReportMd({ run, settings })
   const csv = buildCsv(run)
   await saveRunArtifacts({ runId: run.id, reportMd, csv })
-
-  return { run, reportMd, csv, parserWarnings: warnings }
 }

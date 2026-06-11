@@ -20,25 +20,43 @@ export default function Run() {
   useEffect(() => {
     let cancelled = false
     if (!runId) return
-    ;(async () => {
+    const load = async () => {
       try {
         const r = await apiGet<RunRecord>(`/api/runs/${runId}`)
         if (!cancelled) setRun(r)
       } catch (e) {
         if (!cancelled) setError(e instanceof Error ? e.message : '加载失败')
       }
-    })()
+    }
+    void load()
+    const timer = setInterval(async () => {
+      try {
+        const latest = await apiGet<RunRecord>(`/api/runs/${runId}`)
+        if (cancelled) return
+        setRun(latest)
+        if (latest.status === 'succeeded' || latest.status === 'failed') {
+          clearInterval(timer)
+        }
+      } catch (e) {
+        if (!cancelled) {
+          setError(e instanceof Error ? e.message : '加载失败')
+          clearInterval(timer)
+        }
+      }
+    }, 1500)
     return () => {
       cancelled = true
+      clearInterval(timer)
     }
   }, [runId])
 
   const stats = useMemo(() => {
     if (!run) return null
-    const total = run.items.length
+    const total = run.totalItems
     const ok = run.items.filter((i) => i.recommended?.priceValue != null).length
     const over = run.items.filter((i) => i.limitCheck?.withinLimit === false).length
-    return { total, ok, over }
+    const progress = run.totalItems > 0 ? Math.round((run.completedItems / run.totalItems) * 100) : 0
+    return { total, ok, over, progress }
   }, [run])
 
   if (error) {
@@ -78,6 +96,9 @@ export default function Run() {
                   <Badge tone="neutral">{stats.total} 物料</Badge>
                   <Badge tone={stats.ok === stats.total ? 'good' : 'warn'}>{stats.ok} 有价</Badge>
                   <Badge tone={stats.over > 0 ? 'bad' : 'good'}>{stats.over} 超限</Badge>
+                  <Badge tone={run.status === 'failed' ? 'bad' : run.status === 'succeeded' ? 'good' : 'warn'}>
+                    {run.status === 'queued' ? '排队中' : run.status === 'running' ? `执行中 ${stats.progress}%` : run.status === 'failed' ? '执行失败' : '已完成'}
+                  </Badge>
                 </>
               ) : null}
               <a href={`/api/runs/${run.id}/export.csv`} target="_blank" rel="noreferrer">
@@ -106,9 +127,21 @@ export default function Run() {
               <div className="mt-1 text-sm">{run.createdAt}</div>
             </div>
             <div className="rounded-lg bg-zinc-50 px-3 py-2">
+              <div className="text-xs text-zinc-500">任务进度</div>
+              <div className="mt-1 text-sm">
+                {run.completedItems}/{run.totalItems}
+              </div>
+            </div>
+            <div className="rounded-lg bg-zinc-50 px-3 py-2">
               <div className="text-xs text-zinc-500">结束时间</div>
               <div className="mt-1 text-sm">{run.finishedAt ?? '—'}</div>
             </div>
+          </div>
+          <div className="mt-3 h-2 overflow-hidden rounded-full bg-zinc-100">
+            <div
+              className="h-full rounded-full bg-zinc-900 transition-all"
+              style={{ width: `${run.totalItems > 0 ? (run.completedItems / run.totalItems) * 100 : 0}%` }}
+            />
           </div>
         </CardContent>
       </Card>
@@ -131,11 +164,13 @@ export default function Run() {
                 </div>
                 <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-zinc-600">
                   <div>请求数：{site.totalQueries}</div>
-                  <div>成功：{site.successCount}</div>
-                  <div>空结果：{site.emptyCount}</div>
-                  <div>超时：{site.timeoutCount}</div>
-                  <div>错误：{site.errorCount}</div>
                   <div>缓存：{site.cachedCount}</div>
+                </div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <Badge tone={site.successCount > 0 ? 'good' : 'neutral'}>成功 {site.successCount}</Badge>
+                  <Badge tone={site.emptyCount > 0 ? 'warn' : 'neutral'}>空结果 {site.emptyCount}</Badge>
+                  <Badge tone={site.timeoutCount > 0 ? 'bad' : 'neutral'}>超时 {site.timeoutCount}</Badge>
+                  <Badge tone={site.errorCount > 0 ? 'bad' : 'neutral'}>错误 {site.errorCount}</Badge>
                 </div>
                 {site.lastMessage ? (
                   <div className="mt-2 rounded-md bg-zinc-50 px-2 py-1 text-xs text-zinc-700">{site.lastMessage}</div>

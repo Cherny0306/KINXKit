@@ -86,6 +86,8 @@ export interface RunRecord {
   finishedAt?: string
   instructions: string
   siteIds: SiteId[]
+  totalItems: number
+  completedItems: number
   siteSummaries: RunSiteSummary[]
   items: RunItemResult[]
   errors: {
