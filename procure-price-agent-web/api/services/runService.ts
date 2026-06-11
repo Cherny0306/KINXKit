@@ -263,12 +263,12 @@ async function executeRun(prepared: PreparedRunContext): Promise<void> {
     await saveRun(run)
   }
 
+  const reportMd = await generateReportMd({ run, settings })
+  const csv = buildCsv(run)
+  await saveRunArtifacts({ runId: run.id, reportMd, csv })
+
   run.status = 'succeeded'
   finalizeSiteStates(run)
   run.finishedAt = new Date().toISOString()
   await saveRun(run)
-
-  const reportMd = await generateReportMd({ run, settings })
-  const csv = buildCsv(run)
-  await saveRunArtifacts({ runId: run.id, reportMd, csv })
 }

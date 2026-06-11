@@ -56,9 +56,20 @@ router.get('/:runId', async (req: Request, res: Response) => {
 
 router.get('/:runId/report.md', async (req: Request, res: Response) => {
   const runId = String(req.params.runId)
+  const run = await loadRun(runId)
+  if (!run) {
+    res.status(404).type('text/plain; charset=utf-8').send('任务不存在')
+    return
+  }
   const md = await loadRunReport(runId)
   if (!md) {
-    res.status(404).send('not found')
+    const message =
+      run.status === 'failed'
+        ? '报告未生成：任务执行失败'
+        : run.status === 'succeeded'
+          ? '报告文件暂未就绪，请稍后重试'
+          : '任务仍在执行，报告尚未生成'
+    res.status(run.status === 'failed' ? 404 : 409).type('text/plain; charset=utf-8').send(message)
     return
   }
   res.setHeader('content-type', 'text/markdown; charset=utf-8')
@@ -67,9 +78,20 @@ router.get('/:runId/report.md', async (req: Request, res: Response) => {
 
 router.get('/:runId/export.csv', async (req: Request, res: Response) => {
   const runId = String(req.params.runId)
+  const run = await loadRun(runId)
+  if (!run) {
+    res.status(404).type('text/plain; charset=utf-8').send('任务不存在')
+    return
+  }
   const csv = await loadRunCsv(runId)
   if (!csv) {
-    res.status(404).send('not found')
+    const message =
+      run.status === 'failed'
+        ? 'CSV 未生成：任务执行失败'
+        : run.status === 'succeeded'
+          ? 'CSV 文件暂未就绪，请稍后重试'
+          : '任务仍在执行，CSV 尚未生成'
+    res.status(run.status === 'failed' ? 404 : 409).type('text/plain; charset=utf-8').send(message)
     return
   }
   res.setHeader('content-type', 'text/csv; charset=utf-8')

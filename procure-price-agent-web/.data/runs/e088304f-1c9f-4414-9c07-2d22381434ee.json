@@ -1,0 +1,128 @@
+{
+  "id": "e088304f-1c9f-4414-9c07-2d22381434ee",
+  "status": "succeeded",
+  "createdAt": "2026-06-11T12:24:28.752Z",
+  "instructions": "验证报告下载时序",
+  "siteIds": [
+    "beyotime"
+  ],
+  "totalItems": 2,
+  "completedItems": 2,
+  "siteSummaries": [
+    {
+      "siteId": "beyotime",
+      "state": "partial",
+      "totalQueries": 2,
+      "successCount": 1,
+      "emptyCount": 1,
+      "timeoutCount": 0,
+      "errorCount": 0,
+      "cachedCount": 0,
+      "lastMessage": "请求成功，但未解析到可用公开价格"
+    }
+  ],
+  "items": [
+    {
+      "item": {
+        "rawName": "ProClean 150",
+        "brand": "Beyotime",
+        "catNo": "ST850-50ml",
+        "spec": "50ml",
+        "quantity": 1,
+        "limitPrice": 200
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "ProClean 150(抑菌防腐剂)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=ST850-50ml",
+        "priceText": "¥141.00",
+        "priceValue": 141,
+        "currency": "CNY",
+        "matchedCatNo": "ST850-50ml",
+        "confidence": 0.95
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "ProClean 150(抑菌防腐剂)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=ST850-50ml",
+          "priceText": "¥141.00",
+          "priceValue": 141,
+          "currency": "CNY",
+          "matchedCatNo": "ST850-50ml",
+          "confidence": 0.95
+        },
+        {
+          "siteId": "beyotime",
+          "title": "ProClean 150(抑菌防腐剂)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=ST850-250ml",
+          "priceText": "¥317.00",
+          "priceValue": 317,
+          "currency": "CNY",
+          "matchedCatNo": "ST850-250ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "ProClean 150(抑菌防腐剂)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=ST850-1L",
+          "priceText": "¥549.00",
+          "priceValue": 549,
+          "currency": "CNY",
+          "matchedCatNo": "ST850-1L",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=ST850-50ml",
+          "fetchedAt": "2026-06-11T12:24:32.184Z",
+          "basis": "search",
+          "snapshotText": "ProClean 150(抑菌防腐剂) | ST850-50ml | ¥141.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=ST850-250ml",
+          "fetchedAt": "2026-06-11T12:24:32.184Z",
+          "basis": "search",
+          "snapshotText": "ProClean 150(抑菌防腐剂) | ST850-250ml | ¥317.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=ST850-1L",
+          "fetchedAt": "2026-06-11T12:24:32.184Z",
+          "basis": "search",
+          "snapshotText": "ProClean 150(抑菌防腐剂) | ST850-1L | ¥549.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "limitPrice": 200,
+        "recommendedPrice": 141,
+        "withinLimit": true
+      }
+    },
+    {
+      "item": {
+        "rawName": "AG-270",
+        "brand": "MCE",
+        "catNo": "HY-138630",
+        "spec": "1 mg",
+        "quantity": 1,
+        "limitPrice": 1500
+      },
+      "candidates": [],
+      "evidences": [],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "limitPrice": 1500,
+        "recommendedPrice": null
+      }
+    }
+  ],
+  "errors": [],
+  "finishedAt": "2026-06-11T12:24:34.094Z"
+}

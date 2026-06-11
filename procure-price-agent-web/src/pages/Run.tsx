@@ -4,7 +4,7 @@ import { apiGet } from '@/utils/api'
 import type { RunRecord } from '../../shared/types'
 import { Card, CardContent, CardHeader } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
-import { Button } from '@/components/ui/Button'
+import { Button, getButtonClassName } from '@/components/ui/Button'
 import { Download, ExternalLink } from 'lucide-react'
 
 function money(n: number | null | undefined) {
@@ -81,6 +81,9 @@ export default function Run() {
     )
   }
 
+  const artifactsReady = run.status === 'succeeded'
+  const downloadLinkClassName = getButtonClassName({ variant: 'secondary', className: 'h-9' })
+
   return (
     <div className="space-y-6">
       <Card>
@@ -101,18 +104,33 @@ export default function Run() {
                   </Badge>
                 </>
               ) : null}
-              <a href={`/api/runs/${run.id}/export.csv`} target="_blank" rel="noreferrer">
-                <Button variant="secondary" className="h-9">
+              {artifactsReady ? (
+                <a href={`/api/runs/${run.id}/export.csv`} target="_blank" rel="noreferrer" className={downloadLinkClassName}>
                   <Download className="size-4" />
                   CSV
+                </a>
+              ) : (
+                <Button variant="secondary" className="h-9" disabled title={run.status === 'failed' ? '任务失败，CSV 不可用' : '任务完成后可下载 CSV'}>
+                  <Download className="size-4" />
+                  {run.status === 'failed' ? 'CSV 不可用' : 'CSV 生成中'}
                 </Button>
-              </a>
-              <a href={`/api/runs/${run.id}/report.md`} target="_blank" rel="noreferrer">
-                <Button variant="secondary" className="h-9">
+              )}
+              {artifactsReady ? (
+                <a href={`/api/runs/${run.id}/report.md`} target="_blank" rel="noreferrer" className={downloadLinkClassName}>
                   <Download className="size-4" />
                   报告
+                </a>
+              ) : (
+                <Button
+                  variant="secondary"
+                  className="h-9"
+                  disabled
+                  title={run.status === 'failed' ? '任务失败，报告不可用' : '任务完成后可下载报告'}
+                >
+                  <Download className="size-4" />
+                  {run.status === 'failed' ? '报告不可用' : '报告生成中'}
                 </Button>
-              </a>
+              )}
             </div>
           </div>
         </CardHeader>
