@@ -1,0 +1,17 @@
+{
+  "model": {
+    "baseUrl": "https://api.openai.com/v1",
+    "apiKey": "",
+    "model": "gpt-4o-mini"
+  },
+  "scrape": {
+    "timeoutMs": 20000,
+    "maxCandidatesPerSite": 8,
+    "cacheTtlMinutes": 30
+  },
+  "enabledSites": [
+    "beyotime",
+    "mce",
+    "jd"
+  ]
+}
