@@ -1,0 +1,48 @@
+{
+  "id": "cb9ce490-65f2-47cc-8788-7fc7dd7a0148",
+  "status": "succeeded",
+  "createdAt": "2026-06-12T06:55:38.519Z",
+  "instructions": "请基于我的采购差价测试文件中的品类名称进行公开价格查价。",
+  "siteIds": [
+    "beyotime",
+    "mce",
+    "jd"
+  ],
+  "totalItems": 0,
+  "completedItems": 0,
+  "siteSummaries": [
+    {
+      "siteId": "beyotime",
+      "state": "idle",
+      "totalQueries": 0,
+      "successCount": 0,
+      "emptyCount": 0,
+      "timeoutCount": 0,
+      "errorCount": 0,
+      "cachedCount": 0
+    },
+    {
+      "siteId": "mce",
+      "state": "idle",
+      "totalQueries": 0,
+      "successCount": 0,
+      "emptyCount": 0,
+      "timeoutCount": 0,
+      "errorCount": 0,
+      "cachedCount": 0
+    },
+    {
+      "siteId": "jd",
+      "state": "idle",
+      "totalQueries": 0,
+      "successCount": 0,
+      "emptyCount": 0,
+      "timeoutCount": 0,
+      "errorCount": 0,
+      "cachedCount": 0
+    }
+  ],
+  "items": [],
+  "errors": [],
+  "finishedAt": "2026-06-12T06:55:38.776Z"
+}

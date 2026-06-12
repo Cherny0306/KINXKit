@@ -1,0 +1,2318 @@
+{
+  "id": "4c3afbf4-3052-4c99-b286-f7bf24fdae78",
+  "status": "succeeded",
+  "createdAt": "2026-06-12T07:04:20.416Z",
+  "instructions": "请基于我的采购差价测试文件中的品类名称进行公开价格查价。",
+  "siteIds": [
+    "beyotime",
+    "mce",
+    "jd"
+  ],
+  "totalItems": 23,
+  "completedItems": 23,
+  "siteSummaries": [
+    {
+      "siteId": "beyotime",
+      "state": "partial",
+      "totalQueries": 23,
+      "successCount": 13,
+      "emptyCount": 10,
+      "timeoutCount": 0,
+      "errorCount": 0,
+      "cachedCount": 0,
+      "lastMessage": "请求成功，但未解析到可用公开价格"
+    },
+    {
+      "siteId": "mce",
+      "state": "partial",
+      "totalQueries": 23,
+      "successCount": 0,
+      "emptyCount": 23,
+      "timeoutCount": 0,
+      "errorCount": 0,
+      "cachedCount": 0,
+      "lastMessage": "请求成功，但未解析到可用公开价格"
+    },
+    {
+      "siteId": "jd",
+      "state": "partial",
+      "totalQueries": 23,
+      "successCount": 0,
+      "emptyCount": 23,
+      "timeoutCount": 0,
+      "errorCount": 0,
+      "cachedCount": 0,
+      "lastMessage": "请求成功，但未解析到可用公开价格"
+    }
+  ],
+  "items": [
+    {
+      "item": {
+        "rawName": "冻存管（2ml）"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "BeyoGold™细胞冻存管(2ml, 内旋, 圆底, 可立, 无菌)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV021-1bag",
+        "priceText": "¥56.00",
+        "priceValue": 56,
+        "currency": "CNY",
+        "matchedCatNo": "FCV021-1bag",
+        "confidence": 0.45
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™细胞冻存管(2ml, 内旋, 圆底, 可立, 无菌)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV021-1bag",
+          "priceText": "¥56.00",
+          "priceValue": 56,
+          "currency": "CNY",
+          "matchedCatNo": "FCV021-1bag",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™细胞冻存管(2ml, 内旋, 圆底, 可立, 无菌)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV021-20bags",
+          "priceText": "¥898.00",
+          "priceValue": 898,
+          "currency": "CNY",
+          "matchedCatNo": "FCV021-20bags",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™细胞冻存管(2ml, 外旋, 圆底, 可立, 无菌)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV026-1bag",
+          "priceText": "¥112.00",
+          "priceValue": 112,
+          "currency": "CNY",
+          "matchedCatNo": "FCV026-1bag",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™细胞冻存管(2ml, 外旋, 圆底, 可立, 无菌)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV026-10bags",
+          "priceText": "¥930.00",
+          "priceValue": 930,
+          "currency": "CNY",
+          "matchedCatNo": "FCV026-10bags",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™细胞冻存管(2ml, 外旋, 圆底, 可立, 无菌)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV028-1bag",
+          "priceText": "¥56.00",
+          "priceValue": 56,
+          "currency": "CNY",
+          "matchedCatNo": "FCV028-1bag",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™细胞冻存管(2ml, 外旋, 圆底, 可立, 无菌)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV028-20bags",
+          "priceText": "¥898.00",
+          "priceValue": 898,
+          "currency": "CNY",
+          "matchedCatNo": "FCV028-20bags",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "内毒素检测试剂盒(鲎试剂微量凝胶法, 灵敏度0.015EU/ml)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0266AS",
+          "priceText": "¥569.00",
+          "priceValue": 569,
+          "currency": "CNY",
+          "matchedCatNo": "C0266AS",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "内毒素检测试剂盒(鲎试剂微量凝胶法, 灵敏度0.030EU/ml)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0266BS",
+          "priceText": "¥268.00",
+          "priceValue": 268,
+          "currency": "CNY",
+          "matchedCatNo": "C0266BS",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E5%2586%25BB%25E5%25AD%2598%25E7%25AE%25A1%25EF%25BC%25882ml%25EF%25BC%2589&evtype=3&rpid=rp-188537760-10092-1781247860858&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:21.214Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV021-1bag",
+          "fetchedAt": "2026-06-12T07:04:24.355Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™细胞冻存管(2ml, 内旋, 圆底, 可立, 无菌) | FCV021-1bag | ¥56.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV021-20bags",
+          "fetchedAt": "2026-06-12T07:04:24.355Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™细胞冻存管(2ml, 内旋, 圆底, 可立, 无菌) | FCV021-20bags | ¥898.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV026-1bag",
+          "fetchedAt": "2026-06-12T07:04:24.355Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™细胞冻存管(2ml, 外旋, 圆底, 可立, 无菌) | FCV026-1bag | ¥112.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV026-10bags",
+          "fetchedAt": "2026-06-12T07:04:24.355Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™细胞冻存管(2ml, 外旋, 圆底, 可立, 无菌) | FCV026-10bags | ¥930.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV028-1bag",
+          "fetchedAt": "2026-06-12T07:04:24.355Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™细胞冻存管(2ml, 外旋, 圆底, 可立, 无菌) | FCV028-1bag | ¥56.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV028-20bags",
+          "fetchedAt": "2026-06-12T07:04:24.355Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™细胞冻存管(2ml, 外旋, 圆底, 可立, 无菌) | FCV028-20bags | ¥898.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0266AS",
+          "fetchedAt": "2026-06-12T07:04:24.355Z",
+          "basis": "search",
+          "snapshotText": "内毒素检测试剂盒(鲎试剂微量凝胶法, 灵敏度0.015EU/ml) | C0266AS | ¥569.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0266BS",
+          "fetchedAt": "2026-06-12T07:04:24.355Z",
+          "basis": "search",
+          "snapshotText": "内毒素检测试剂盒(鲎试剂微量凝胶法, 灵敏度0.030EU/ml) | C0266BS | ¥268.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 56
+      }
+    },
+    {
+      "item": {
+        "rawName": "冻存管（5ml）"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "BeyoGold™细胞冻存管(5ml, 外旋, 圆底, 可立, 无菌)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV056-1bag",
+        "priceText": "¥75.00",
+        "priceValue": 75,
+        "currency": "CNY",
+        "matchedCatNo": "FCV056-1bag",
+        "confidence": 0.45
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™细胞冻存管(5ml, 外旋, 圆底, 可立, 无菌)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV056-1bag",
+          "priceText": "¥75.00",
+          "priceValue": 75,
+          "currency": "CNY",
+          "matchedCatNo": "FCV056-1bag",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™细胞冻存管(5ml, 外旋, 圆底, 可立, 无菌)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV056-10bags",
+          "priceText": "¥645.00",
+          "priceValue": 645,
+          "currency": "CNY",
+          "matchedCatNo": "FCV056-10bags",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™细胞冻存管(5ml, 外旋, 圆底, 可立, 无菌)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV058-1bag",
+          "priceText": "¥80.00",
+          "priceValue": 80,
+          "currency": "CNY",
+          "matchedCatNo": "FCV058-1bag",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™细胞冻存管(5ml, 外旋, 圆底, 可立, 无菌)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV058-20bags",
+          "priceText": "¥1420.00",
+          "priceValue": 1420,
+          "currency": "CNY",
+          "matchedCatNo": "FCV058-20bags",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "植物原生质体分离试剂盒",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0362S",
+          "priceText": "¥796.00",
+          "priceValue": 796,
+          "currency": "CNY",
+          "matchedCatNo": "C0362S",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "叶绿体分离试剂盒(差速离心法)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0566S",
+          "priceText": "¥318.00",
+          "priceValue": 318,
+          "currency": "CNY",
+          "matchedCatNo": "C0566S",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "叶绿体分离试剂盒(差速离心法)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0566M",
+          "priceText": "¥1258.00",
+          "priceValue": 1258,
+          "currency": "CNY",
+          "matchedCatNo": "C0566M",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoClick™ EdUTP-488 TUNEL细胞凋亡检测试剂盒",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C1170S",
+          "priceText": "¥1598.00",
+          "priceValue": 1598,
+          "currency": "CNY",
+          "matchedCatNo": "C1170S",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://search.jd.com/Search?keyword=%E5%86%BB%E5%AD%98%E7%AE%A1%EF%BC%885ml%EF%BC%89",
+          "fetchedAt": "2026-06-12T07:04:24.531Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV056-1bag",
+          "fetchedAt": "2026-06-12T07:04:28.051Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™细胞冻存管(5ml, 外旋, 圆底, 可立, 无菌) | FCV056-1bag | ¥75.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV056-10bags",
+          "fetchedAt": "2026-06-12T07:04:28.051Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™细胞冻存管(5ml, 外旋, 圆底, 可立, 无菌) | FCV056-10bags | ¥645.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV058-1bag",
+          "fetchedAt": "2026-06-12T07:04:28.051Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™细胞冻存管(5ml, 外旋, 圆底, 可立, 无菌) | FCV058-1bag | ¥80.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCV058-20bags",
+          "fetchedAt": "2026-06-12T07:04:28.051Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™细胞冻存管(5ml, 外旋, 圆底, 可立, 无菌) | FCV058-20bags | ¥1420.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0362S",
+          "fetchedAt": "2026-06-12T07:04:28.051Z",
+          "basis": "search",
+          "snapshotText": "植物原生质体分离试剂盒 | C0362S | ¥796.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0566S",
+          "fetchedAt": "2026-06-12T07:04:28.051Z",
+          "basis": "search",
+          "snapshotText": "叶绿体分离试剂盒(差速离心法) | C0566S | ¥318.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0566M",
+          "fetchedAt": "2026-06-12T07:04:28.051Z",
+          "basis": "search",
+          "snapshotText": "叶绿体分离试剂盒(差速离心法) | C0566M | ¥1258.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C1170S",
+          "fetchedAt": "2026-06-12T07:04:28.051Z",
+          "basis": "search",
+          "snapshotText": "BeyoClick™ EdUTP-488 TUNEL细胞凋亡检测试剂盒 | C1170S | ¥1598.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 75
+      }
+    },
+    {
+      "item": {
+        "rawName": "离心管（15ml）"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "人外周血淋巴细胞分离液",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0025-200ml",
+        "priceText": "¥196.00",
+        "priceValue": 196,
+        "currency": "CNY",
+        "matchedCatNo": "C0025-200ml",
+        "confidence": 0.45
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "15ml离心管圆盘适配器(15ml×3) (适配E6800)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6801",
+          "priceText": "¥279.00",
+          "priceValue": 279,
+          "currency": "CNY",
+          "matchedCatNo": "F6801",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "15ml离心管长轴适配器(15ml×23, 适配E6826/E6827)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6827",
+          "priceText": "¥239.00",
+          "priceValue": 239,
+          "currency": "CNY",
+          "matchedCatNo": "F6827",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "15ml离心管长轴适配器(15ml×16, 水平旋转, 适配E6826/E6827)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6830",
+          "priceText": "¥229.00",
+          "priceValue": 229,
+          "currency": "CNY",
+          "matchedCatNo": "F6830",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "试管振荡器(定时, 适用于15ml和50ml离心管)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=E0015",
+          "priceText": "¥2539.00",
+          "priceValue": 2539,
+          "currency": "CNY",
+          "matchedCatNo": "E0015",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "加热块L(12×15mL离心管)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=E0475L",
+          "priceText": "¥1188.00",
+          "priceValue": 1188,
+          "currency": "CNY",
+          "matchedCatNo": "E0475L",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "人外周血淋巴细胞分离液",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0025-200ml",
+          "priceText": "¥196.00",
+          "priceValue": 196,
+          "currency": "CNY",
+          "matchedCatNo": "C0025-200ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "大鼠外周血淋巴细胞分离试剂盒",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0027S",
+          "priceText": "¥599.00",
+          "priceValue": 599,
+          "currency": "CNY",
+          "matchedCatNo": "C0027S",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "小鼠外周血淋巴细胞分离试剂盒",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0029S",
+          "priceText": "¥599.00",
+          "priceValue": 599,
+          "currency": "CNY",
+          "matchedCatNo": "C0029S",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://search.jd.com/Search?keyword=%E7%A6%BB%E5%BF%83%E7%AE%A1%EF%BC%8815ml%EF%BC%89",
+          "fetchedAt": "2026-06-12T07:04:28.236Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6801",
+          "fetchedAt": "2026-06-12T07:04:29.836Z",
+          "basis": "search",
+          "snapshotText": "15ml离心管圆盘适配器(15ml×3) (适配E6800) | F6801 | ¥279.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6827",
+          "fetchedAt": "2026-06-12T07:04:29.836Z",
+          "basis": "search",
+          "snapshotText": "15ml离心管长轴适配器(15ml×23, 适配E6826/E6827) | F6827 | ¥239.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6830",
+          "fetchedAt": "2026-06-12T07:04:29.836Z",
+          "basis": "search",
+          "snapshotText": "15ml离心管长轴适配器(15ml×16, 水平旋转, 适配E6826/E6827) | F6830 | ¥229.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=E0015",
+          "fetchedAt": "2026-06-12T07:04:29.836Z",
+          "basis": "search",
+          "snapshotText": "试管振荡器(定时, 适用于15ml和50ml离心管) | E0015 | ¥2539.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=E0475L",
+          "fetchedAt": "2026-06-12T07:04:29.836Z",
+          "basis": "search",
+          "snapshotText": "加热块L(12×15mL离心管) | E0475L | ¥1188.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0025-200ml",
+          "fetchedAt": "2026-06-12T07:04:29.836Z",
+          "basis": "search",
+          "snapshotText": "人外周血淋巴细胞分离液 | C0025-200ml | ¥196.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0027S",
+          "fetchedAt": "2026-06-12T07:04:29.836Z",
+          "basis": "search",
+          "snapshotText": "大鼠外周血淋巴细胞分离试剂盒 | C0027S | ¥599.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0029S",
+          "fetchedAt": "2026-06-12T07:04:29.836Z",
+          "basis": "search",
+          "snapshotText": "小鼠外周血淋巴细胞分离试剂盒 | C0029S | ¥599.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 196
+      }
+    },
+    {
+      "item": {
+        "rawName": "离心管（50ml）"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "6ml层析柱转50ml离心管适配器",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA011-2pcs",
+        "priceText": "¥19.00",
+        "priceValue": 19,
+        "currency": "CNY",
+        "matchedCatNo": "FSA011-2pcs",
+        "confidence": 0.45
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "50ml离心管圆盘适配器(50ml×3) (适配E6800)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6802",
+          "priceText": "¥279.00",
+          "priceValue": 279,
+          "currency": "CNY",
+          "matchedCatNo": "F6802",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "50ml离心管长轴适配器(50ml×12, 适配E6826/E6827)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6828",
+          "priceText": "¥239.00",
+          "priceValue": 239,
+          "currency": "CNY",
+          "matchedCatNo": "F6828",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "50ml离心管长轴适配器(50ml×12, 水平旋转, 适配E6826/E6827)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6831",
+          "priceText": "¥229.00",
+          "priceValue": 229,
+          "currency": "CNY",
+          "matchedCatNo": "F6831",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "6ml层析柱转50ml离心管适配器",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA011-2pcs",
+          "priceText": "¥19.00",
+          "priceValue": 19,
+          "currency": "CNY",
+          "matchedCatNo": "FSA011-2pcs",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "6ml层析柱转50ml离心管适配器",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA011-10pcs",
+          "priceText": "¥79.00",
+          "priceValue": 79,
+          "currency": "CNY",
+          "matchedCatNo": "FSA011-10pcs",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "12ml层析柱转50ml离心管适配器",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA013-2pcs",
+          "priceText": "¥19.00",
+          "priceValue": 19,
+          "currency": "CNY",
+          "matchedCatNo": "FSA013-2pcs",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "12ml层析柱转50ml离心管适配器",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA013-10pcs",
+          "priceText": "¥79.00",
+          "priceValue": 79,
+          "currency": "CNY",
+          "matchedCatNo": "FSA013-10pcs",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™ 12ml层析柱转50ml离心管适配器",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA018-2pcs",
+          "priceText": "¥29.00",
+          "priceValue": 29,
+          "currency": "CNY",
+          "matchedCatNo": "FSA018-2pcs",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://search.jd.com/Search?keyword=%E7%A6%BB%E5%BF%83%E7%AE%A1%EF%BC%8850ml%EF%BC%89",
+          "fetchedAt": "2026-06-12T07:04:29.999Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6802",
+          "fetchedAt": "2026-06-12T07:04:33.643Z",
+          "basis": "search",
+          "snapshotText": "50ml离心管圆盘适配器(50ml×3) (适配E6800) | F6802 | ¥279.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6828",
+          "fetchedAt": "2026-06-12T07:04:33.644Z",
+          "basis": "search",
+          "snapshotText": "50ml离心管长轴适配器(50ml×12, 适配E6826/E6827) | F6828 | ¥239.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6831",
+          "fetchedAt": "2026-06-12T07:04:33.644Z",
+          "basis": "search",
+          "snapshotText": "50ml离心管长轴适配器(50ml×12, 水平旋转, 适配E6826/E6827) | F6831 | ¥229.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA011-2pcs",
+          "fetchedAt": "2026-06-12T07:04:33.644Z",
+          "basis": "search",
+          "snapshotText": "6ml层析柱转50ml离心管适配器 | FSA011-2pcs | ¥19.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA011-10pcs",
+          "fetchedAt": "2026-06-12T07:04:33.644Z",
+          "basis": "search",
+          "snapshotText": "6ml层析柱转50ml离心管适配器 | FSA011-10pcs | ¥79.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA013-2pcs",
+          "fetchedAt": "2026-06-12T07:04:33.644Z",
+          "basis": "search",
+          "snapshotText": "12ml层析柱转50ml离心管适配器 | FSA013-2pcs | ¥19.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA013-10pcs",
+          "fetchedAt": "2026-06-12T07:04:33.644Z",
+          "basis": "search",
+          "snapshotText": "12ml层析柱转50ml离心管适配器 | FSA013-10pcs | ¥79.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSA018-2pcs",
+          "fetchedAt": "2026-06-12T07:04:33.644Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™ 12ml层析柱转50ml离心管适配器 | FSA018-2pcs | ¥29.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 19
+      }
+    },
+    {
+      "item": {
+        "rawName": "标本采集瓶（广口，100ml）"
+      },
+      "candidates": [],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E6%25A0%2587%25E6%259C%25AC%25E9%2587%2587%25E9%259B%2586%25E7%2593%25B6%25EF%25BC%2588%25E5%25B9%25BF%25E5%258F%25A3%25EF%25BC%258C100ml%25EF%25BC%2589&evtype=3&rpid=rp-188533907-10254-1781247873739&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:34.080Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        }
+      ],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "recommendedPrice": null
+      }
+    },
+    {
+      "item": {
+        "rawName": "标本采集瓶（广口，50ml）"
+      },
+      "candidates": [],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E6%25A0%2587%25E6%259C%25AC%25E9%2587%2587%25E9%259B%2586%25E7%2593%25B6%25EF%25BC%2588%25E5%25B9%25BF%25E5%258F%25A3%25EF%25BC%258C50ml%25EF%25BC%2589&evtype=3&rpid=rp-188534436-10147-1781247875115&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:35.298Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        }
+      ],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "recommendedPrice": null
+      }
+    },
+    {
+      "item": {
+        "rawName": "封口膜"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "BeyoGold™三角培养瓶封口膜(120×120mm, 透气滤膜直径16mm, 卷膜)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF112-1box",
+        "priceText": "¥72.00",
+        "priceValue": 72,
+        "currency": "CNY",
+        "matchedCatNo": "FSF112-1box",
+        "confidence": 0.65
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "Parafilm封口膜(4英寸×125英尺)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FPF566",
+          "priceText": "¥192.00",
+          "priceValue": 192,
+          "currency": "CNY",
+          "matchedCatNo": "FPF566",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™三角培养瓶封口膜(120×120mm, 透气滤膜直径16mm, 卷膜)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF112-1box",
+          "priceText": "¥72.00",
+          "priceValue": 72,
+          "currency": "CNY",
+          "matchedCatNo": "FSF112-1box",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™三角培养瓶封口膜(120×120mm, 透气滤膜直径30mm, 卷膜)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF113-1box",
+          "priceText": "¥97.00",
+          "priceValue": 97,
+          "currency": "CNY",
+          "matchedCatNo": "FSF113-1box",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™三角培养瓶封口膜(140×140mm, 透气滤膜直径16mm, 卷膜)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF115-1box",
+          "priceText": "¥82.00",
+          "priceValue": 82,
+          "currency": "CNY",
+          "matchedCatNo": "FSF115-1box",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™三角培养瓶封口膜(140×140mm, 透气滤膜直径30mm, 卷膜)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF116-1box",
+          "priceText": "¥105.00",
+          "priceValue": 105,
+          "currency": "CNY",
+          "matchedCatNo": "FSF116-1box",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™三角培养瓶封口膜(160×160mm, 透气滤膜直径16mm, 卷膜)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF117-1box",
+          "priceText": "¥88.00",
+          "priceValue": 88,
+          "currency": "CNY",
+          "matchedCatNo": "FSF117-1box",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoGold™三角培养瓶封口膜(160×160mm, 透气滤膜直径30mm, 卷膜)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF118-1box",
+          "priceText": "¥113.00",
+          "priceValue": 113,
+          "currency": "CNY",
+          "matchedCatNo": "FSF118-1box",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "Seal-R-film封口膜(10厘米×38米)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FPF568",
+          "priceText": "¥176.00",
+          "priceValue": 176,
+          "currency": "CNY",
+          "matchedCatNo": "FPF568",
+          "confidence": 0.65
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E5%25B0%2581%25E5%258F%25A3%25E8%2586%259C&evtype=3&rpid=rp-188543056-10095-1781247878349&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:38.554Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FPF566",
+          "fetchedAt": "2026-06-12T07:04:40.259Z",
+          "basis": "search",
+          "snapshotText": "Parafilm封口膜(4英寸×125英尺) | FPF566 | ¥192.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF112-1box",
+          "fetchedAt": "2026-06-12T07:04:40.259Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™三角培养瓶封口膜(120×120mm, 透气滤膜直径16mm, 卷膜) | FSF112-1box | ¥72.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF113-1box",
+          "fetchedAt": "2026-06-12T07:04:40.259Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™三角培养瓶封口膜(120×120mm, 透气滤膜直径30mm, 卷膜) | FSF113-1box | ¥97.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF115-1box",
+          "fetchedAt": "2026-06-12T07:04:40.259Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™三角培养瓶封口膜(140×140mm, 透气滤膜直径16mm, 卷膜) | FSF115-1box | ¥82.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF116-1box",
+          "fetchedAt": "2026-06-12T07:04:40.259Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™三角培养瓶封口膜(140×140mm, 透气滤膜直径30mm, 卷膜) | FSF116-1box | ¥105.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF117-1box",
+          "fetchedAt": "2026-06-12T07:04:40.259Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™三角培养瓶封口膜(160×160mm, 透气滤膜直径16mm, 卷膜) | FSF117-1box | ¥88.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FSF118-1box",
+          "fetchedAt": "2026-06-12T07:04:40.259Z",
+          "basis": "search",
+          "snapshotText": "BeyoGold™三角培养瓶封口膜(160×160mm, 透气滤膜直径30mm, 卷膜) | FSF118-1box | ¥113.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FPF568",
+          "fetchedAt": "2026-06-12T07:04:40.259Z",
+          "basis": "search",
+          "snapshotText": "Seal-R-film封口膜(10厘米×38米) | FPF568 | ¥176.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 72
+      }
+    },
+    {
+      "item": {
+        "rawName": "标签纸/记号笔/铅笔"
+      },
+      "candidates": [],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E6%25A0%2587%25E7%25AD%25BE%25E7%25BA%25B8%252F%25E8%25AE%25B0%25E5%258F%25B7%25E7%25AC%2594%252F%25E9%2593%2585%25E7%25AC%2594&evtype=3&rpid=rp-190156055-10089-1781247880348&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:40.555Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        }
+      ],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "recommendedPrice": null
+      }
+    },
+    {
+      "item": {
+        "rawName": "防水记录纸"
+      },
+      "candidates": [],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E9%2598%25B2%25E6%25B0%25B4%25E8%25AE%25B0%25E5%25BD%2595%25E7%25BA%25B8&evtype=3&rpid=rp-188543110-10293-1781247883134&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:43.358Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        }
+      ],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "recommendedPrice": null
+      }
+    },
+    {
+      "item": {
+        "rawName": "保温箱（30L）"
+      },
+      "candidates": [],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E4%25BF%259D%25E6%25B8%25A9%25E7%25AE%25B1%25EF%25BC%258830L%25EF%25BC%2589&evtype=3&rpid=rp-188545028-10024-1781247887089&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:47.463Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        }
+      ],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "recommendedPrice": null
+      }
+    },
+    {
+      "item": {
+        "rawName": "车载冷藏箱（50L）"
+      },
+      "candidates": [],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E8%25BD%25A6%25E8%25BD%25BD%25E5%2586%25B7%25E8%2597%258F%25E7%25AE%25B1%25EF%25BC%258850L%25EF%25BC%2589&evtype=3&rpid=rp-188523879-10472-1781247888426&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:48.610Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        }
+      ],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "recommendedPrice": null
+      }
+    },
+    {
+      "item": {
+        "rawName": "冰袋"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "冰袋，已注水，11.5 x 17 cm",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=JX04748067",
+        "priceText": "¥3.20",
+        "priceValue": 3.2,
+        "currency": "CNY",
+        "matchedCatNo": "JX04748067",
+        "confidence": 0.65
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "冰袋，未注水，11.5 x 17 cm",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=JX04748066",
+          "priceText": "¥15.20",
+          "priceValue": 15.2,
+          "currency": "CNY",
+          "matchedCatNo": "JX04748066",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "冰袋，已注水，11.5 x 17 cm",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=JX04748067",
+          "priceText": "¥3.20",
+          "priceValue": 3.2,
+          "currency": "CNY",
+          "matchedCatNo": "JX04748067",
+          "confidence": 0.65
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E5%2586%25B0%25E8%25A2%258B&evtype=3&rpid=rp-188536688-10253-1781247890272&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:50.461Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=JX04748066",
+          "fetchedAt": "2026-06-12T07:04:54.256Z",
+          "basis": "search",
+          "snapshotText": "冰袋，未注水，11.5 x 17 cm | JX04748066 | ¥15.20"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=JX04748067",
+          "fetchedAt": "2026-06-12T07:04:54.256Z",
+          "basis": "search",
+          "snapshotText": "冰袋，已注水，11.5 x 17 cm | JX04748067 | ¥3.20"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 3.2
+      }
+    },
+    {
+      "item": {
+        "rawName": "干冰"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "22Rv1 (人前列腺癌细胞)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6001",
+        "priceText": "¥950.00",
+        "priceValue": 950,
+        "currency": "CNY",
+        "matchedCatNo": "C6001",
+        "confidence": 0.45
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "22Rv1 (人前列腺癌细胞)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6001",
+          "priceText": "¥950.00",
+          "priceValue": 950,
+          "currency": "CNY",
+          "matchedCatNo": "C6001",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "293 (人胚肾细胞)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6002",
+          "priceText": "¥1286.00",
+          "priceValue": 1286,
+          "currency": "CNY",
+          "matchedCatNo": "C6002",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "HEK293-A (人胚肾细胞)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6006",
+          "priceText": "¥1450.00",
+          "priceValue": 1450,
+          "currency": "CNY",
+          "matchedCatNo": "C6006",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "293T (人胚肾细胞)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6008",
+          "priceText": "¥1176.00",
+          "priceValue": 1176,
+          "currency": "CNY",
+          "matchedCatNo": "C6008",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "HEK293E (293 c18) (人胚肾细胞)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6012",
+          "priceText": "¥1550.00",
+          "priceValue": 1550,
+          "currency": "CNY",
+          "matchedCatNo": "C6012",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "HEK293S GnTI- (人胚肾细胞)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6013",
+          "priceText": "¥2450.00",
+          "priceValue": 2450,
+          "currency": "CNY",
+          "matchedCatNo": "C6013",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "HEK293-FT (人胚肾细胞)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6014",
+          "priceText": "¥1450.00",
+          "priceValue": 1450,
+          "currency": "CNY",
+          "matchedCatNo": "C6014",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "5637 (人膀胱癌细胞)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6018",
+          "priceText": "¥1350.00",
+          "priceValue": 1350,
+          "currency": "CNY",
+          "matchedCatNo": "C6018",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E5%25B9%25B2%25E5%2586%25B0&evtype=3&rpid=rp-188534597-10432-1781247894345&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:54.547Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6001",
+          "fetchedAt": "2026-06-12T07:04:56.399Z",
+          "basis": "search",
+          "snapshotText": "22Rv1 (人前列腺癌细胞) | C6001 | ¥950.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6002",
+          "fetchedAt": "2026-06-12T07:04:56.399Z",
+          "basis": "search",
+          "snapshotText": "293 (人胚肾细胞) | C6002 | ¥1286.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6006",
+          "fetchedAt": "2026-06-12T07:04:56.399Z",
+          "basis": "search",
+          "snapshotText": "HEK293-A (人胚肾细胞) | C6006 | ¥1450.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6008",
+          "fetchedAt": "2026-06-12T07:04:56.399Z",
+          "basis": "search",
+          "snapshotText": "293T (人胚肾细胞) | C6008 | ¥1176.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6012",
+          "fetchedAt": "2026-06-12T07:04:56.399Z",
+          "basis": "search",
+          "snapshotText": "HEK293E (293 c18) (人胚肾细胞) | C6012 | ¥1550.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6013",
+          "fetchedAt": "2026-06-12T07:04:56.399Z",
+          "basis": "search",
+          "snapshotText": "HEK293S GnTI- (人胚肾细胞) | C6013 | ¥2450.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6014",
+          "fetchedAt": "2026-06-12T07:04:56.399Z",
+          "basis": "search",
+          "snapshotText": "HEK293-FT (人胚肾细胞) | C6014 | ¥1450.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C6018",
+          "fetchedAt": "2026-06-12T07:04:56.399Z",
+          "basis": "search",
+          "snapshotText": "5637 (人膀胱癌细胞) | C6018 | ¥1350.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 950
+      }
+    },
+    {
+      "item": {
+        "rawName": "RNA保存液（RNAlater）"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "RNALater™血液RNA稳定保存液(试用装)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0116FT",
+        "priceText": "¥0.00",
+        "priceValue": 0,
+        "currency": "CNY",
+        "matchedCatNo": "R0116FT",
+        "confidence": 0.45
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "RNALater™血液RNA稳定保存液",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0116-100ml",
+          "priceText": "¥289.00",
+          "priceValue": 289,
+          "currency": "CNY",
+          "matchedCatNo": "R0116-100ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "RNALater™血液RNA稳定保存液",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0116-500ml",
+          "priceText": "¥828.00",
+          "priceValue": 828,
+          "currency": "CNY",
+          "matchedCatNo": "R0116-500ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "RNALater™血液RNA稳定保存液(试用装)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0116FT",
+          "priceText": "¥0.00",
+          "priceValue": 0,
+          "currency": "CNY",
+          "matchedCatNo": "R0116FT",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "RNALater™动物组织RNA稳定保存液(试用装)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0118FT",
+          "priceText": "¥0.00",
+          "priceValue": 0,
+          "currency": "CNY",
+          "matchedCatNo": "R0118FT",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "RNALater™动物组织RNA稳定保存液",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0118-100ml",
+          "priceText": "¥327.00",
+          "priceValue": 327,
+          "currency": "CNY",
+          "matchedCatNo": "R0118-100ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "RNALater™动物组织RNA稳定保存液",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0118-500ml",
+          "priceText": "¥990.00",
+          "priceValue": 990,
+          "currency": "CNY",
+          "matchedCatNo": "R0118-500ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "RNALater™病毒RNA稳定保存液",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0141-100ml",
+          "priceText": "¥268.00",
+          "priceValue": 268,
+          "currency": "CNY",
+          "matchedCatNo": "R0141-100ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "RNALater™病毒RNA稳定保存液",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0141-500ml",
+          "priceText": "¥786.00",
+          "priceValue": 786,
+          "currency": "CNY",
+          "matchedCatNo": "R0141-500ml",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3DRNA%25E4%25BF%259D%25E5%25AD%2598%25E6%25B6%25B2%25EF%25BC%2588RNAlater%25EF%25BC%2589&evtype=3&rpid=rp-188538773-10367-1781247896488&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:56.690Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0116-100ml",
+          "fetchedAt": "2026-06-12T07:04:56.977Z",
+          "basis": "search",
+          "snapshotText": "RNALater™血液RNA稳定保存液 | R0116-100ml | ¥289.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0116-500ml",
+          "fetchedAt": "2026-06-12T07:04:56.977Z",
+          "basis": "search",
+          "snapshotText": "RNALater™血液RNA稳定保存液 | R0116-500ml | ¥828.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0116FT",
+          "fetchedAt": "2026-06-12T07:04:56.977Z",
+          "basis": "search",
+          "snapshotText": "RNALater™血液RNA稳定保存液(试用装) | R0116FT | ¥0.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0118FT",
+          "fetchedAt": "2026-06-12T07:04:56.977Z",
+          "basis": "search",
+          "snapshotText": "RNALater™动物组织RNA稳定保存液(试用装) | R0118FT | ¥0.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0118-100ml",
+          "fetchedAt": "2026-06-12T07:04:56.977Z",
+          "basis": "search",
+          "snapshotText": "RNALater™动物组织RNA稳定保存液 | R0118-100ml | ¥327.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0118-500ml",
+          "fetchedAt": "2026-06-12T07:04:56.977Z",
+          "basis": "search",
+          "snapshotText": "RNALater™动物组织RNA稳定保存液 | R0118-500ml | ¥990.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0141-100ml",
+          "fetchedAt": "2026-06-12T07:04:56.977Z",
+          "basis": "search",
+          "snapshotText": "RNALater™病毒RNA稳定保存液 | R0141-100ml | ¥268.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=R0141-500ml",
+          "fetchedAt": "2026-06-12T07:04:56.977Z",
+          "basis": "search",
+          "snapshotText": "RNALater™病毒RNA稳定保存液 | R0141-500ml | ¥786.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 0
+      }
+    },
+    {
+      "item": {
+        "rawName": "75%酒精"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "实验鼠笼套装(M1型)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCA001-1set",
+        "priceText": "¥68.00",
+        "priceValue": 68,
+        "currency": "CNY",
+        "matchedCatNo": "FCA001-1set",
+        "confidence": 0.45
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "乙醇检测试剂盒(WST-8法)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=S0240S",
+          "priceText": "¥598.00",
+          "priceValue": 598,
+          "currency": "CNY",
+          "matchedCatNo": "S0240S",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "乙醇检测试剂盒(WST-8法)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=S0240M",
+          "priceText": "¥2299.00",
+          "priceValue": 2299,
+          "currency": "CNY",
+          "matchedCatNo": "S0240M",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "乙醇脱氢酶活性检测试剂盒(WST-8法)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=S0241S",
+          "priceText": "¥598.00",
+          "priceValue": 598,
+          "currency": "CNY",
+          "matchedCatNo": "S0241S",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "乙醇脱氢酶活性检测试剂盒(WST-8法)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=S0241M",
+          "priceText": "¥2198.00",
+          "priceValue": 2198,
+          "currency": "CNY",
+          "matchedCatNo": "S0241M",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "H型底座支架(适配E6609)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6610C",
+          "priceText": "¥459.00",
+          "priceValue": 459,
+          "currency": "CNY",
+          "matchedCatNo": "F6610C",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "Ф8毫米分散刀头(适配E6609)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6610A",
+          "priceText": "¥509.00",
+          "priceValue": 509,
+          "currency": "CNY",
+          "matchedCatNo": "F6610A",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "Ф10毫米分散刀头(适配E6609)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6610B",
+          "priceText": "¥509.00",
+          "priceValue": 509,
+          "currency": "CNY",
+          "matchedCatNo": "F6610B",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "实验鼠笼套装(M1型)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCA001-1set",
+          "priceText": "¥68.00",
+          "priceValue": 68,
+          "currency": "CNY",
+          "matchedCatNo": "FCA001-1set",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D75%2525%25E9%2585%2592%25E7%25B2%25BE&evtype=3&rpid=rp-188531642-10401-1781247897064&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:57.246Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=S0240S",
+          "fetchedAt": "2026-06-12T07:04:57.516Z",
+          "basis": "search",
+          "snapshotText": "乙醇检测试剂盒(WST-8法) | S0240S | ¥598.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=S0240M",
+          "fetchedAt": "2026-06-12T07:04:57.516Z",
+          "basis": "search",
+          "snapshotText": "乙醇检测试剂盒(WST-8法) | S0240M | ¥2299.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=S0241S",
+          "fetchedAt": "2026-06-12T07:04:57.516Z",
+          "basis": "search",
+          "snapshotText": "乙醇脱氢酶活性检测试剂盒(WST-8法) | S0241S | ¥598.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=S0241M",
+          "fetchedAt": "2026-06-12T07:04:57.516Z",
+          "basis": "search",
+          "snapshotText": "乙醇脱氢酶活性检测试剂盒(WST-8法) | S0241M | ¥2198.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6610C",
+          "fetchedAt": "2026-06-12T07:04:57.516Z",
+          "basis": "search",
+          "snapshotText": "H型底座支架(适配E6609) | F6610C | ¥459.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6610A",
+          "fetchedAt": "2026-06-12T07:04:57.516Z",
+          "basis": "search",
+          "snapshotText": "Ф8毫米分散刀头(适配E6609) | F6610A | ¥509.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=F6610B",
+          "fetchedAt": "2026-06-12T07:04:57.516Z",
+          "basis": "search",
+          "snapshotText": "Ф10毫米分散刀头(适配E6609) | F6610B | ¥509.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=FCA001-1set",
+          "fetchedAt": "2026-06-12T07:04:57.516Z",
+          "basis": "search",
+          "snapshotText": "实验鼠笼套装(M1型) | FCA001-1set | ¥68.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 68
+      }
+    },
+    {
+      "item": {
+        "rawName": "无水乙醇"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "无水氘代乙醇(Isotopic)(D,99%，无水级)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y263010-50mg",
+        "priceText": "¥59.00",
+        "priceValue": 59,
+        "currency": "CNY",
+        "matchedCatNo": "Y263010-50mg",
+        "confidence": 0.45
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "无水氘代乙醇(Isotopic)(D,99%，无水级)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y263010-50mg",
+          "priceText": "¥59.00",
+          "priceValue": 59,
+          "currency": "CNY",
+          "matchedCatNo": "Y263010-50mg",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "无水氘代乙醇(Isotopic)(D,99%，无水级)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y263010-200mg",
+          "priceText": "¥201.00",
+          "priceValue": 201,
+          "currency": "CNY",
+          "matchedCatNo": "Y263010-200mg",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "无水氘代乙醇(Isotopic)(D,99%，无水级)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y263010-1g",
+          "priceText": "¥803.00",
+          "priceValue": 803,
+          "currency": "CNY",
+          "matchedCatNo": "Y263010-1g",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "Amplex Red乙醇检测试剂盒",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=S0239S",
+          "priceText": "¥598.00",
+          "priceValue": 598,
+          "currency": "CNY",
+          "matchedCatNo": "S0239S",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "细胞凋亡-DNA Ladder抽提试剂盒",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0007",
+          "priceText": "¥219.00",
+          "priceValue": 219,
+          "currency": "CNY",
+          "matchedCatNo": "C0007",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "细胞凋亡－DNA Ladder抽提试剂盒(离心柱式)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0008",
+          "priceText": "¥496.00",
+          "priceValue": 496,
+          "currency": "CNY",
+          "matchedCatNo": "C0008",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "甲基绿染色液",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0115",
+          "priceText": "¥208.00",
+          "priceValue": 208,
+          "currency": "CNY",
+          "matchedCatNo": "C0115",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "尼氏(Nissl)染色液",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0117",
+          "priceText": "¥225.00",
+          "priceValue": 225,
+          "currency": "CNY",
+          "matchedCatNo": "C0117",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E6%2597%25A0%25E6%25B0%25B4%25E4%25B9%2599%25E9%2586%2587&evtype=3&rpid=rp-188534436-10037-1781247897607&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:04:57.805Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y263010-50mg",
+          "fetchedAt": "2026-06-12T07:05:01.654Z",
+          "basis": "search",
+          "snapshotText": "无水氘代乙醇(Isotopic)(D,99%，无水级) | Y263010-50mg | ¥59.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y263010-200mg",
+          "fetchedAt": "2026-06-12T07:05:01.654Z",
+          "basis": "search",
+          "snapshotText": "无水氘代乙醇(Isotopic)(D,99%，无水级) | Y263010-200mg | ¥201.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y263010-1g",
+          "fetchedAt": "2026-06-12T07:05:01.654Z",
+          "basis": "search",
+          "snapshotText": "无水氘代乙醇(Isotopic)(D,99%，无水级) | Y263010-1g | ¥803.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=S0239S",
+          "fetchedAt": "2026-06-12T07:05:01.654Z",
+          "basis": "search",
+          "snapshotText": "Amplex Red乙醇检测试剂盒 | S0239S | ¥598.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0007",
+          "fetchedAt": "2026-06-12T07:05:01.654Z",
+          "basis": "search",
+          "snapshotText": "细胞凋亡-DNA Ladder抽提试剂盒 | C0007 | ¥219.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0008",
+          "fetchedAt": "2026-06-12T07:05:01.654Z",
+          "basis": "search",
+          "snapshotText": "细胞凋亡－DNA Ladder抽提试剂盒(离心柱式) | C0008 | ¥496.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0115",
+          "fetchedAt": "2026-06-12T07:05:01.654Z",
+          "basis": "search",
+          "snapshotText": "甲基绿染色液 | C0115 | ¥208.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0117",
+          "fetchedAt": "2026-06-12T07:05:01.654Z",
+          "basis": "search",
+          "snapshotText": "尼氏(Nissl)染色液 | C0117 | ¥225.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 59
+      }
+    },
+    {
+      "item": {
+        "rawName": "乙酸乙酯"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "二氟氯乙酸乙酯(98%)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063452-5g",
+        "priceText": "¥47.00",
+        "priceValue": 47,
+        "currency": "CNY",
+        "matchedCatNo": "Y063452-5g",
+        "confidence": 0.65
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "α,α-二氟苯乙酸乙酯(95%)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063187-1g",
+          "priceText": "¥143.00",
+          "priceValue": 143,
+          "currency": "CNY",
+          "matchedCatNo": "Y063187-1g",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "α,α-二氟苯乙酸乙酯(95%)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063187-5g",
+          "priceText": "¥216.00",
+          "priceValue": 216,
+          "currency": "CNY",
+          "matchedCatNo": "Y063187-5g",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "α,α-二氟苯乙酸乙酯(95%)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063187-25g",
+          "priceText": "¥1000.00",
+          "priceValue": 1000,
+          "currency": "CNY",
+          "matchedCatNo": "Y063187-25g",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "α,α-二氟苯乙酸乙酯(95%)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063187-100g",
+          "priceText": "¥3208.00",
+          "priceValue": 3208,
+          "currency": "CNY",
+          "matchedCatNo": "Y063187-100g",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "二氟乙酸乙酯(97%)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063443-100g",
+          "priceText": "¥106.00",
+          "priceValue": 106,
+          "currency": "CNY",
+          "matchedCatNo": "Y063443-100g",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "二氟乙酸乙酯(99%)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063444-100g",
+          "priceText": "¥120.00",
+          "priceValue": 120,
+          "currency": "CNY",
+          "matchedCatNo": "Y063444-100g",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "二氟乙酸乙酯(99%)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063444-500g",
+          "priceText": "¥480.00",
+          "priceValue": 480,
+          "currency": "CNY",
+          "matchedCatNo": "Y063444-500g",
+          "confidence": 0.65
+        },
+        {
+          "siteId": "beyotime",
+          "title": "二氟氯乙酸乙酯(98%)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063452-5g",
+          "priceText": "¥47.00",
+          "priceValue": 47,
+          "currency": "CNY",
+          "matchedCatNo": "Y063452-5g",
+          "confidence": 0.65
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E4%25B9%2599%25E9%2585%25B8%25E4%25B9%2599%25E9%2585%25AF&evtype=3&rpid=rp-190156055-10434-1781247901742&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:05:01.953Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063187-1g",
+          "fetchedAt": "2026-06-12T07:05:06.185Z",
+          "basis": "search",
+          "snapshotText": "α,α-二氟苯乙酸乙酯(95%) | Y063187-1g | ¥143.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063187-5g",
+          "fetchedAt": "2026-06-12T07:05:06.185Z",
+          "basis": "search",
+          "snapshotText": "α,α-二氟苯乙酸乙酯(95%) | Y063187-5g | ¥216.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063187-25g",
+          "fetchedAt": "2026-06-12T07:05:06.185Z",
+          "basis": "search",
+          "snapshotText": "α,α-二氟苯乙酸乙酯(95%) | Y063187-25g | ¥1000.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063187-100g",
+          "fetchedAt": "2026-06-12T07:05:06.185Z",
+          "basis": "search",
+          "snapshotText": "α,α-二氟苯乙酸乙酯(95%) | Y063187-100g | ¥3208.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063443-100g",
+          "fetchedAt": "2026-06-12T07:05:06.185Z",
+          "basis": "search",
+          "snapshotText": "二氟乙酸乙酯(97%) | Y063443-100g | ¥106.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063444-100g",
+          "fetchedAt": "2026-06-12T07:05:06.185Z",
+          "basis": "search",
+          "snapshotText": "二氟乙酸乙酯(99%) | Y063444-100g | ¥120.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063444-500g",
+          "fetchedAt": "2026-06-12T07:05:06.185Z",
+          "basis": "search",
+          "snapshotText": "二氟乙酸乙酯(99%) | Y063444-500g | ¥480.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=Y063452-5g",
+          "fetchedAt": "2026-06-12T07:05:06.185Z",
+          "basis": "search",
+          "snapshotText": "二氟氯乙酸乙酯(98%) | Y063452-5g | ¥47.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 47
+      }
+    },
+    {
+      "item": {
+        "rawName": "试管架（各种规格）"
+      },
+      "candidates": [],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E8%25AF%2595%25E7%25AE%25A1%25E6%259E%25B6%25EF%25BC%2588%25E5%2590%2584%25E7%25A7%258D%25E8%25A7%2584%25E6%25A0%25BC%25EF%25BC%2589&evtype=3&rpid=rp-188524083-10168-1781247906636&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:05:06.866Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        }
+      ],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "recommendedPrice": null
+      }
+    },
+    {
+      "item": {
+        "rawName": "培养皿（塑料，ø90mm）"
+      },
+      "candidates": [],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E5%259F%25B9%25E5%2585%25BB%25E7%259A%25BF%25EF%25BC%2588%25E5%25A1%2591%25E6%2596%2599%25EF%25BC%258C%25C3%25B890mm%25EF%25BC%2589&evtype=3&rpid=rp-188531642-10300-1781247909511&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:05:09.749Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        }
+      ],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "recommendedPrice": null
+      }
+    },
+    {
+      "item": {
+        "rawName": "移液枪（100μL/1000μL）"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "BeyoColor™支原体等温扩增检测试剂盒(红黄变色法, 含UDG)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0307S",
+        "priceText": "¥399.00",
+        "priceValue": 399,
+        "currency": "CNY",
+        "matchedCatNo": "C0307S",
+        "confidence": 0.45
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "支原体PCR检测试剂盒",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0301S",
+          "priceText": "¥659.00",
+          "priceValue": 659,
+          "currency": "CNY",
+          "matchedCatNo": "C0301S",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoColor™支原体等温扩增检测试剂盒(红黄变色法, 含UDG)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0307S",
+          "priceText": "¥399.00",
+          "priceValue": 399,
+          "currency": "CNY",
+          "matchedCatNo": "C0307S",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoColor™支原体等温扩增检测试剂盒(红黄变色法, 含UDG)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0307M",
+          "priceText": "¥1259.00",
+          "priceValue": 1259,
+          "currency": "CNY",
+          "matchedCatNo": "C0307M",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoFast™ SYBR Green One-Step qRT-PCR Kit",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=D7268S",
+          "priceText": "¥475.00",
+          "priceValue": 475,
+          "currency": "CNY",
+          "matchedCatNo": "D7268S",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoFast™ SYBR Green One-Step qRT-PCR Kit",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=D7268M",
+          "priceText": "¥1935.00",
+          "priceValue": 1935,
+          "currency": "CNY",
+          "matchedCatNo": "D7268M",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoFast™ Probe One-Step qRT-PCR Kit",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=D7277S",
+          "priceText": "¥433.00",
+          "priceValue": 433,
+          "currency": "CNY",
+          "matchedCatNo": "D7277S",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoFast™ Probe One-Step qRT-PCR Kit",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=D7277M",
+          "priceText": "¥1759.00",
+          "priceValue": 1759,
+          "currency": "CNY",
+          "matchedCatNo": "D7277M",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "BeyoFast™ SYBR Green One-Step qRT-PCR Kit (防污染型)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=D7509S",
+          "priceText": "¥536.00",
+          "priceValue": 536,
+          "currency": "CNY",
+          "matchedCatNo": "D7509S",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E7%25A7%25BB%25E6%25B6%25B2%25E6%259E%25AA%25EF%25BC%2588100%25CE%25BCL%252F1000%25CE%25BCL%25EF%25BC%2589&evtype=3&rpid=rp-105529726-10003-1781247912261&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:05:12.451Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0301S",
+          "fetchedAt": "2026-06-12T07:05:15.134Z",
+          "basis": "search",
+          "snapshotText": "支原体PCR检测试剂盒 | C0301S | ¥659.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0307S",
+          "fetchedAt": "2026-06-12T07:05:15.134Z",
+          "basis": "search",
+          "snapshotText": "BeyoColor™支原体等温扩增检测试剂盒(红黄变色法, 含UDG) | C0307S | ¥399.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=C0307M",
+          "fetchedAt": "2026-06-12T07:05:15.134Z",
+          "basis": "search",
+          "snapshotText": "BeyoColor™支原体等温扩增检测试剂盒(红黄变色法, 含UDG) | C0307M | ¥1259.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=D7268S",
+          "fetchedAt": "2026-06-12T07:05:15.134Z",
+          "basis": "search",
+          "snapshotText": "BeyoFast™ SYBR Green One-Step qRT-PCR Kit | D7268S | ¥475.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=D7268M",
+          "fetchedAt": "2026-06-12T07:05:15.134Z",
+          "basis": "search",
+          "snapshotText": "BeyoFast™ SYBR Green One-Step qRT-PCR Kit | D7268M | ¥1935.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=D7277S",
+          "fetchedAt": "2026-06-12T07:05:15.134Z",
+          "basis": "search",
+          "snapshotText": "BeyoFast™ Probe One-Step qRT-PCR Kit | D7277S | ¥433.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=D7277M",
+          "fetchedAt": "2026-06-12T07:05:15.134Z",
+          "basis": "search",
+          "snapshotText": "BeyoFast™ Probe One-Step qRT-PCR Kit | D7277M | ¥1759.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=D7509S",
+          "fetchedAt": "2026-06-12T07:05:15.134Z",
+          "basis": "search",
+          "snapshotText": "BeyoFast™ SYBR Green One-Step qRT-PCR Kit (防污染型) | D7509S | ¥536.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 399
+      }
+    },
+    {
+      "item": {
+        "rawName": "移液枪头"
+      },
+      "recommended": {
+        "siteId": "beyotime",
+        "title": "辣根过氧化物酶标记Protein G (1mg/ml)",
+        "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0323-0.2ml",
+        "priceText": "¥150.00",
+        "priceValue": 150,
+        "currency": "CNY",
+        "matchedCatNo": "A0323-0.2ml",
+        "confidence": 0.45
+      },
+      "candidates": [
+        {
+          "siteId": "beyotime",
+          "title": "辣根过氧化物酶标记Protein G (1mg/ml)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0323-0.2ml",
+          "priceText": "¥150.00",
+          "priceValue": 150,
+          "currency": "CNY",
+          "matchedCatNo": "A0323-0.2ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "辣根过氧化物酶标记Protein G (冻干粉)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0323-1mg",
+          "priceText": "¥498.00",
+          "priceValue": 498,
+          "currency": "CNY",
+          "matchedCatNo": "A0323-1mg",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "辣根过氧化物酶标记Protein G (1mg/ml)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0323-1ml",
+          "priceText": "¥499.00",
+          "priceValue": 499,
+          "currency": "CNY",
+          "matchedCatNo": "A0323-1ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "辣根过氧化物酶标记Protein G (冻干粉)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0323-5mg",
+          "priceText": "¥1988.00",
+          "priceValue": 1988,
+          "currency": "CNY",
+          "matchedCatNo": "A0323-5mg",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "辣根过氧化物酶标记Protein A/G (1mg/ml)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0325-0.2ml",
+          "priceText": "¥166.00",
+          "priceValue": 166,
+          "currency": "CNY",
+          "matchedCatNo": "A0325-0.2ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "辣根过氧化物酶标记Protein A/G (冻干粉)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0325-1mg",
+          "priceText": "¥558.00",
+          "priceValue": 558,
+          "currency": "CNY",
+          "matchedCatNo": "A0325-1mg",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "辣根过氧化物酶标记Protein A/G (1mg/ml)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0325-1ml",
+          "priceText": "¥559.00",
+          "priceValue": 559,
+          "currency": "CNY",
+          "matchedCatNo": "A0325-1ml",
+          "confidence": 0.45
+        },
+        {
+          "siteId": "beyotime",
+          "title": "辣根过氧化物酶标记Protein A/G (冻干粉)",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0325-5mg",
+          "priceText": "¥2198.00",
+          "priceValue": 2198,
+          "currency": "CNY",
+          "matchedCatNo": "A0325-5mg",
+          "confidence": 0.45
+        }
+      ],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E7%25A7%25BB%25E6%25B6%25B2%25E6%259E%25AA%25E5%25A4%25B4&evtype=3&rpid=rp-188537760-10243-1781247915227&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:05:15.416Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0323-0.2ml",
+          "fetchedAt": "2026-06-12T07:05:18.809Z",
+          "basis": "search",
+          "snapshotText": "辣根过氧化物酶标记Protein G (1mg/ml) | A0323-0.2ml | ¥150.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0323-1mg",
+          "fetchedAt": "2026-06-12T07:05:18.809Z",
+          "basis": "search",
+          "snapshotText": "辣根过氧化物酶标记Protein G (冻干粉) | A0323-1mg | ¥498.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0323-1ml",
+          "fetchedAt": "2026-06-12T07:05:18.809Z",
+          "basis": "search",
+          "snapshotText": "辣根过氧化物酶标记Protein G (1mg/ml) | A0323-1ml | ¥499.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0323-5mg",
+          "fetchedAt": "2026-06-12T07:05:18.809Z",
+          "basis": "search",
+          "snapshotText": "辣根过氧化物酶标记Protein G (冻干粉) | A0323-5mg | ¥1988.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0325-0.2ml",
+          "fetchedAt": "2026-06-12T07:05:18.809Z",
+          "basis": "search",
+          "snapshotText": "辣根过氧化物酶标记Protein A/G (1mg/ml) | A0325-0.2ml | ¥166.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0325-1mg",
+          "fetchedAt": "2026-06-12T07:05:18.809Z",
+          "basis": "search",
+          "snapshotText": "辣根过氧化物酶标记Protein A/G (冻干粉) | A0325-1mg | ¥558.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0325-1ml",
+          "fetchedAt": "2026-06-12T07:05:18.809Z",
+          "basis": "search",
+          "snapshotText": "辣根过氧化物酶标记Protein A/G (1mg/ml) | A0325-1ml | ¥559.00"
+        },
+        {
+          "siteId": "beyotime",
+          "url": "https://m.beyotime.com/mobilegoods.do?method=code&code=A0325-5mg",
+          "fetchedAt": "2026-06-12T07:05:18.809Z",
+          "basis": "search",
+          "snapshotText": "辣根过氧化物酶标记Protein A/G (冻干粉) | A0325-5mg | ¥2198.00"
+        }
+      ],
+      "warnings": [],
+      "limitCheck": {
+        "recommendedPrice": 150
+      }
+    },
+    {
+      "item": {
+        "rawName": "自封袋（各种规格）"
+      },
+      "candidates": [],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://search.jd.com/Search?keyword=%E8%87%AA%E5%B0%81%E8%A2%8B%EF%BC%88%E5%90%84%E7%A7%8D%E8%A7%84%E6%A0%BC%EF%BC%89",
+          "fetchedAt": "2026-06-12T07:05:18.965Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        }
+      ],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "recommendedPrice": null
+      }
+    },
+    {
+      "item": {
+        "rawName": "剪刀/镊子/止血钳（基础）"
+      },
+      "candidates": [],
+      "evidences": [
+        {
+          "siteId": "jd",
+          "url": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fsearch.jd.com%2FSearch%3Fkeyword%3D%25E5%2589%25AA%25E5%2588%2580%252F%25E9%2595%258A%25E5%25AD%2590%252F%25E6%25AD%25A2%25E8%25A1%2580%25E9%2592%25B3%25EF%25BC%2588%25E5%259F%25BA%25E7%25A1%2580%25EF%25BC%2589&evtype=3&rpid=rp-188543110-10471-1781247920840&evapi=hold_search_php&evext=",
+          "fetchedAt": "2026-06-12T07:05:21.033Z",
+          "basis": "search",
+          "snapshotText": "未解析到可用的公开价格（可能被风控/页面结构变化）"
+        }
+      ],
+      "warnings": [
+        "未获取到可用候选报价"
+      ],
+      "limitCheck": {
+        "recommendedPrice": null
+      }
+    }
+  ],
+  "errors": [],
+  "finishedAt": "2026-06-12T07:05:23.902Z"
+}
