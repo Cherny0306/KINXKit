@@ -14,9 +14,9 @@ function toTableRow(r: RunItemResult) {
   const item = r.item
   return `| ${lineSafe(item.brand ?? '')} | ${lineSafe(item.catNo ?? '')} | ${lineSafe(
     item.spec ?? '',
-  )} | ${lineSafe(item.rawName)} | ${item.quantity ?? ''} | ${fmtMoney(item.limitPrice ?? null)} | ${
-    r.recommended ? lineSafe(r.recommended.siteId) : ''
-  } | ${fmtMoney(r.recommended?.priceValue ?? null)} | ${r.recommended ? lineSafe(r.recommended.url) : ''} |`
+  )} | ${lineSafe(item.rawName)} | ${item.quantity ?? ''} | ${r.recommended ? lineSafe(r.recommended.siteId) : ''} | ${fmtMoney(
+    r.recommended?.priceValue ?? null,
+  )} | ${r.recommended ? lineSafe(r.recommended.url) : ''} |`
 }
 
 export async function generateReportMd(input: {
@@ -36,8 +36,8 @@ export async function generateReportMd(input: {
     ``,
     `## 价格清单（推荐项）`,
     ``,
-    `| 品牌 | 货号/Cat No. | 规格 | 物料描述 | 数量 | 限价 | 推荐站点 | 推荐价 | 来源链接 |`,
-    `|---|---|---|---|---:|---:|---|---:|---|`,
+    `| 品牌 | 货号/Cat No. | 规格 | 物料描述 | 数量 | 推荐站点 | 推荐价 | 来源链接 |`,
+    `|---|---|---|---|---:|---|---:|---|`,
     ...input.run.items.map(toTableRow),
     ``,
     `## 备注与风险提示`,
@@ -56,16 +56,13 @@ export async function generateReportMd(input: {
     .map((i) => {
       const cat = i.item.catNo ? `货号${i.item.catNo}` : ''
       const rec = i.recommended ? `${i.recommended.siteId} ${fmtMoney(i.recommended.priceValue)}` : '无推荐'
-      const limit = i.item.limitPrice != null ? `限价${fmtMoney(i.item.limitPrice)}` : '无单项限价'
-      const within = i.limitCheck?.withinLimit
-      const limitText = within === undefined ? '' : within ? '（未超限）' : '（超限）'
-      return `${i.item.rawName} ${cat} ${rec} ${limit}${limitText}`.trim()
+      return `${i.item.rawName} ${cat} ${rec}`.trim()
     })
     .join('\n')
 
   const prompt = [
     `你是采购查价助手，请基于以下查价结果，为采购人员生成一段“详细说明”，要求：`,
-    `1) 用中文；2) 解释推荐逻辑与限价判断；3) 标出需要人工确认的风险点；4) 不要编造不存在的价格；5) 保持精炼（300-600字）。`,
+    `1) 用中文；2) 解释推荐逻辑（基于公开价与置信度）；3) 标出需要人工确认的风险点；4) 不要编造不存在的价格；5) 保持精炼（300-600字）。`,
     ``,
     `查价结果摘要：`,
     summary,

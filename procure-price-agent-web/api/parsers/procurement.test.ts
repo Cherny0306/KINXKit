@@ -23,7 +23,5 @@ describe('parseProcurementFile', () => {
     expect(items[0].catNo).toBe('ST850-50ml')
     expect(items[0].spec).toBe('50ml')
     expect(items[0].quantity).toBe(2)
-    expect(items[0].limitPrice).toBe(200)
   })
 })
-

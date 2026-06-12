@@ -21,7 +21,7 @@ export default function Home() {
   )
 
   const [file, setFile] = useState<File | null>(null)
-  const [instructions, setInstructions] = useState<string>('请基于公开价格查价，优先匹配货号与规格；如超出限价请标红并给出原因。')
+  const [instructions, setInstructions] = useState<string>('请基于物料名称进行模糊匹配，从公开价格中检索相关物品并给出推荐项与来源。')
   const [selectedSites, setSelectedSites] = useState<SiteId[]>(defaultSites)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -103,7 +103,7 @@ export default function Home() {
                 <div className="flex items-center gap-2 text-sm text-zinc-700">
                   <FileSpreadsheet className="size-4 text-zinc-500" />
                   <span className="truncate">
-                    {file ? file.name : '点击选择文件（建议包含：名称/货号/规格/数量/限价）'}
+                    {file ? file.name : '点击选择文件（建议包含：名称/品牌/规格/数量）'}
                   </span>
                 </div>
                 <span className="text-xs text-zinc-500 group-hover:text-zinc-700">选择</span>
@@ -117,7 +117,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-2">
-              <div className="text-xs font-medium text-zinc-700">采购说明 / 限价策略</div>
+              <div className="text-xs font-medium text-zinc-700">采购说明</div>
               <Textarea value={instructions} onChange={(e) => setInstructions(e.target.value)} />
               <div className="text-xs text-zinc-500">
                 系统只抓公开价，不包含登录价/券后价/协议价；结果会附来源链接与时间戳。
@@ -269,13 +269,13 @@ export default function Home() {
             <div className="rounded-lg bg-zinc-50 px-3 py-2">
               <div className="text-xs font-medium text-zinc-800">推荐表头（任意顺序均可）</div>
               <div className="mt-1 text-xs text-zinc-600">
-                名称/品名、品牌、货号/Cat No.、规格、数量、限价
+                名称/品名、品牌、规格、数量（货号/Cat No. 可选）
               </div>
             </div>
             <div className="rounded-lg bg-zinc-50 px-3 py-2">
               <div className="text-xs font-medium text-zinc-800">匹配优先级</div>
               <div className="mt-1 text-xs text-zinc-600">
-                货号/Cat No. &gt; 规格 &gt; 名称；无货号时会降低置信度并给出提示。
+                以名称模糊匹配为主；规格用于辅助提示；结果会按置信度与公开价综合排序。
               </div>
             </div>
             <div className="rounded-lg bg-zinc-50 px-3 py-2">

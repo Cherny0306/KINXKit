@@ -31,7 +31,6 @@ function buildCsv(run: RunRecord) {
     'spec',
     'rawName',
     'quantity',
-    'limitPrice',
     'recommendedSite',
     'recommendedPrice',
     'url',
@@ -42,7 +41,6 @@ function buildCsv(run: RunRecord) {
     r.item.spec ?? '',
     r.item.rawName ?? '',
     r.item.quantity ?? '',
-    r.item.limitPrice ?? '',
     r.recommended?.siteId ?? '',
     r.recommended?.priceValue ?? '',
     r.recommended?.url ?? '',
@@ -196,7 +194,7 @@ async function executeRun(prepared: PreparedRunContext): Promise<void> {
   await saveRun(run)
 
   for (const item of normalizedItems) {
-    const query = item.catNo || item.rawName
+    const query = item.rawName
     const perItemCandidates: RunItemResult['candidates'] = []
     const perItemEvidences: RunItemResult['evidences'] = []
     const perItemWarnings: string[] = []

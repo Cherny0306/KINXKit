@@ -62,9 +62,8 @@ export default function Run() {
     if (!run) return null
     const total = run.totalItems
     const ok = run.items.filter((i) => i.recommended?.priceValue != null).length
-    const over = run.items.filter((i) => i.limitCheck?.withinLimit === false).length
     const progress = run.totalItems > 0 ? Math.round((run.completedItems / run.totalItems) * 100) : 0
-    return { total, ok, over, progress }
+    return { total, ok, progress }
   }, [run])
 
   if (error) {
@@ -122,7 +121,6 @@ export default function Run() {
                 <>
                   <Badge tone="neutral">{stats.total} 物料</Badge>
                   <Badge tone={stats.ok === stats.total ? 'good' : 'warn'}>{stats.ok} 有价</Badge>
-                  <Badge tone={stats.over > 0 ? 'bad' : 'good'}>{stats.over} 超限</Badge>
                   <Badge tone={run.status === 'failed' ? 'bad' : run.status === 'succeeded' ? 'good' : 'warn'}>
                     {run.status === 'queued' ? '排队中' : run.status === 'running' ? `执行中 ${stats.progress}%` : run.status === 'failed' ? '执行失败' : '已完成'}
                   </Badge>
@@ -255,7 +253,6 @@ export default function Run() {
                 <th className="w-40 py-2">货号/Cat No.</th>
                 <th className="w-40 py-2">规格</th>
                 <th className="w-[360px] py-2">物料描述</th>
-                <th className="w-20 py-2 text-right">限价</th>
                 <th className="w-20 py-2 text-right">推荐价</th>
                 <th className="w-20 py-2">状态</th>
                 <th className="w-40 py-2">来源</th>
@@ -263,20 +260,17 @@ export default function Run() {
             </thead>
             <tbody>
               {run.items.map((r, idx) => {
-                const within = r.limitCheck?.withinLimit
-                const tone = within === false ? 'bad' : within === true ? 'good' : 'neutral'
+                const hasPrice = r.recommended?.priceValue != null
+                const tone = hasPrice ? 'good' : 'warn'
                 return (
                   <tr key={idx} className="border-b border-zinc-100 align-top">
                     <td className="py-3 pr-3">{r.item.brand ?? ''}</td>
                     <td className="py-3 pr-3 font-mono text-xs">{r.item.catNo ?? ''}</td>
                     <td className="py-3 pr-3">{r.item.spec ?? ''}</td>
                     <td className="py-3 pr-3">{r.item.rawName}</td>
-                    <td className="py-3 pr-3 text-right">{money(r.item.limitPrice ?? null)}</td>
                     <td className="py-3 pr-3 text-right">{money(r.recommended?.priceValue ?? null)}</td>
                     <td className="py-3 pr-3">
-                      <Badge tone={tone}>
-                        {within === false ? '超限' : within === true ? '未超限' : '未判定'}
-                      </Badge>
+                      <Badge tone={tone}>{hasPrice ? '有价' : '无价'}</Badge>
                       {r.warnings.length ? (
                         <div className="mt-1 text-xs text-zinc-500">{r.warnings.join('；')}</div>
                       ) : null}

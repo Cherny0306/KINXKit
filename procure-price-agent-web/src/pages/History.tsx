@@ -115,7 +115,6 @@ export default function History() {
                     <td className="py-3 pr-3">
                       <div className="flex flex-wrap gap-2">
                         <Badge tone={r.okCount > 0 ? 'good' : 'neutral'}>有价 {r.okCount}</Badge>
-                        <Badge tone={r.overLimitCount > 0 ? 'bad' : 'neutral'}>超限 {r.overLimitCount}</Badge>
                         <Badge tone={r.errorCount > 0 ? 'bad' : 'neutral'}>错误 {r.errorCount}</Badge>
                       </div>
                     </td>
@@ -139,4 +138,3 @@ export default function History() {
     </div>
   )
 }
-

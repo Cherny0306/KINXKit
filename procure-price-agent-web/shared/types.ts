@@ -28,7 +28,6 @@ export interface ProcurementItemInput {
   catNo?: string
   spec?: string
   quantity?: number
-  limitPrice?: number
 }
 
 export interface QuoteCandidate {
@@ -58,11 +57,6 @@ export interface RunItemResult {
   candidates: QuoteCandidate[]
   evidences: Evidence[]
   warnings: string[]
-  limitCheck?: {
-    limitPrice?: number
-    recommendedPrice?: number | null
-    withinLimit?: boolean
-  }
 }
 
 export type RunSiteState = 'idle' | 'ok' | 'partial' | 'failed'
@@ -109,6 +103,5 @@ export interface RunListItem {
   totalItems: number
   completedItems: number
   okCount: number
-  overLimitCount: number
   errorCount: number
 }

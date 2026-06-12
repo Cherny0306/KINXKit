@@ -43,18 +43,16 @@ export function parseProcurementFile(input: { filename: string; buffer: Buffer }
   const catNoKey = pickHeader(headers, /(货号|cat|catalog|产品编号|编号)/i)
   const specKey = pickHeader(headers, /(规格|包装|spec|pack)/i)
   const qtyKey = pickHeader(headers, /(数量|qty|quantity|num)/i)
-  const limitKey = pickHeader(headers, /(限价|最高价|预算|max\\s*price|limit)/i)
 
   if (rawNameKey) keyMap.set('rawName', normalizedToRaw.get(rawNameKey)!)
   if (brandKey) keyMap.set('brand', normalizedToRaw.get(brandKey)!)
   if (catNoKey) keyMap.set('catNo', normalizedToRaw.get(catNoKey)!)
   if (specKey) keyMap.set('spec', normalizedToRaw.get(specKey)!)
   if (qtyKey) keyMap.set('quantity', normalizedToRaw.get(qtyKey)!)
-  if (limitKey) keyMap.set('limitPrice', normalizedToRaw.get(limitKey)!)
 
   const warnings: string[] = []
-  if (!rawNameKey && !catNoKey) {
-    warnings.push('未识别到“名称/品名/物料”或“货号/Cat No.”列，匹配准确度可能较低')
+  if (!rawNameKey) {
+    warnings.push('未识别到“名称/品名/物料”列，将尝试用货号/规格作为替代查询词，匹配准确度可能较低')
   }
 
   const items: ProcurementItemInput[] = rows
@@ -64,7 +62,6 @@ export function parseProcurementFile(input: { filename: string; buffer: Buffer }
       const catNo = String(keyMap.get('catNo') ? r[keyMap.get('catNo')!] : '').trim() || undefined
       const spec = String(keyMap.get('spec') ? r[keyMap.get('spec')!] : '').trim() || undefined
       const quantity = parseNumber(keyMap.get('quantity') ? r[keyMap.get('quantity')!] : undefined)
-      const limitPrice = parseNumber(keyMap.get('limitPrice') ? r[keyMap.get('limitPrice')!] : undefined)
 
       const fallbackName = rawName || catNo || spec || ''
       if (!fallbackName) return null
@@ -75,7 +72,6 @@ export function parseProcurementFile(input: { filename: string; buffer: Buffer }
         catNo,
         spec,
         quantity,
-        limitPrice,
       } satisfies ProcurementItemInput
     })
     .filter(Boolean) as ProcurementItemInput[]
@@ -83,4 +79,3 @@ export function parseProcurementFile(input: { filename: string; buffer: Buffer }
   if (items.length === 0) warnings.push('清单解析结果为空，请检查表头与内容是否完整')
   return { items, warnings }
 }
-

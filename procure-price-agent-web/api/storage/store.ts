@@ -107,7 +107,6 @@ function buildInstructionsPreview(text: string) {
 
 function toListItem(run: RunRecord): RunListItem {
   const okCount = run.items.filter((i) => i.recommended?.priceValue != null).length
-  const overLimitCount = run.items.filter((i) => i.limitCheck?.withinLimit === false).length
   return {
     id: run.id,
     status: run.status,
@@ -118,7 +117,6 @@ function toListItem(run: RunRecord): RunListItem {
     totalItems: run.totalItems,
     completedItems: run.completedItems,
     okCount,
-    overLimitCount,
     errorCount: run.errors.length,
   }
 }

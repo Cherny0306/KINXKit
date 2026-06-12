@@ -4,11 +4,12 @@ function normalize(s: string | undefined) {
   return (s ?? '').trim().toLowerCase()
 }
 
-function matchesCatNo(item: ProcurementItemInput, c: QuoteCandidate) {
-  const cat = normalize(item.catNo)
-  if (!cat) return false
-  const fields = [c.matchedCatNo, c.title, c.url, c.matchedSpec].map((x) => normalize(x))
-  return fields.some((f) => f.length > 0 && (f.includes(cat) || cat.includes(f)))
+function matchesName(item: ProcurementItemInput, c: QuoteCandidate) {
+  const name = normalize(item.rawName)
+  if (!name) return false
+  const title = normalize(c.title)
+  if (!title) return false
+  return title.includes(name) || name.includes(title)
 }
 
 function pickRecommended(item: ProcurementItemInput, candidates: QuoteCandidate[]) {
@@ -16,11 +17,10 @@ function pickRecommended(item: ProcurementItemInput, candidates: QuoteCandidate[
     QuoteCandidate & { priceValue: number }
   >
   if (withPrice.length === 0) return undefined
-
-  const matched = withPrice.filter((c) => matchesCatNo(item, c))
-  const pool = matched.length > 0 ? matched : withPrice
-
-  return pool.sort((a, b) => {
+  return withPrice.sort((a, b) => {
+    const am = matchesName(item, a) ? 1 : 0
+    const bm = matchesName(item, b) ? 1 : 0
+    if (bm !== am) return bm - am
     if (b.confidence !== a.confidence) return b.confidence - a.confidence
     return a.priceValue - b.priceValue
   })[0]
@@ -33,10 +33,6 @@ export function buildRunItemResult(input: {
   warnings: string[]
 }): RunItemResult {
   const recommended = pickRecommended(input.item, input.candidates)
-  const limitPrice = input.item.limitPrice
-  const recommendedPrice = recommended?.priceValue ?? null
-  const withinLimit =
-    limitPrice != null && recommendedPrice != null ? recommendedPrice <= limitPrice : undefined
 
   return {
     item: input.item,
@@ -44,10 +40,5 @@ export function buildRunItemResult(input: {
     candidates: input.candidates.sort((a, b) => (b.confidence !== a.confidence ? b.confidence - a.confidence : 0)),
     evidences: input.evidences,
     warnings: input.warnings,
-    limitCheck: {
-      limitPrice,
-      recommendedPrice,
-      withinLimit,
-    },
   }
 }
