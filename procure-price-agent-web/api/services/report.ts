@@ -74,8 +74,8 @@ export async function generateReportMd(input: {
   try {
     const llmText = await chatOnce({ model, prompt, timeoutMs: input.settings.scrape.timeoutMs })
     return `${base}\n## 模型生成的补充说明\n\n${llmText.trim()}\n`
-  } catch {
-    return base
+  } catch (e) {
+    const message = e instanceof Error ? e.message : '模型调用失败'
+    return `${base}\n## 模型生成的补充说明（未生成）\n\n- 原因：${message}\n- 建议：检查设置页的 base_url / api_key / model 是否正确；若为额度不足请充值或更换模型。\n`
   }
 }
-

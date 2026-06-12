@@ -14,8 +14,9 @@ export async function chatOnce(input: {
   timeoutMs: number
 }): Promise<string> {
   const endpoint = buildEndpoint(input.model.baseUrl || 'https://api.openai.com/v1')
-  const { json } = await fetchJson<{
+  const { status, json } = await fetchJson<{
     choices?: Array<{ message?: { content?: string } }>
+    error?: { message?: string; code?: string }
   }>(endpoint, {
     method: 'POST',
     timeoutMs: input.timeoutMs,
@@ -34,6 +35,26 @@ export async function chatOnce(input: {
       temperature: 0.2,
     }),
   })
+
+  const maybeErrorMessage =
+    json.error?.message ||
+    (json as unknown as { message?: string }).message ||
+    (json as unknown as { error?: string }).error
+
+  if (status >= 400) {
+    const msg = maybeErrorMessage ? String(maybeErrorMessage) : `HTTP ${status}`
+    const lower = msg.toLowerCase()
+    if (lower.includes('余额不足') || lower.includes('无可用资源包')) {
+      throw new Error('模型余额不足或无可用资源包，请充值或更换可用模型')
+    }
+    if (lower.includes('unauthorized') || lower.includes('apikey') || lower.includes('invalid') || lower.includes('鉴权')) {
+      throw new Error('模型鉴权失败：请检查 base_url / api_key / model 是否正确')
+    }
+    if (status === 429) {
+      throw new Error(`模型请求被限流：${msg}`)
+    }
+    throw new Error(`模型请求失败：${msg}`)
+  }
 
   const content = json.choices?.[0]?.message?.content
   if (!content) throw new Error('模型未返回有效内容')

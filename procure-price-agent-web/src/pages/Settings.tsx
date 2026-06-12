@@ -85,7 +85,7 @@ export default function Settings() {
               <Input
                 value={local.model.baseUrl}
                 onChange={(e) => setLocal({ ...local, model: { ...local.model, baseUrl: e.target.value } })}
-                placeholder="https://xxx/v1"
+                placeholder="https://xxx/v1 或 https://open.bigmodel.cn/api/paas/v4/"
               />
             </div>
             <div className="space-y-2">
@@ -202,4 +202,3 @@ export default function Settings() {
     </div>
   )
 }
-
