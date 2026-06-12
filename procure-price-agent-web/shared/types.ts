@@ -98,3 +98,17 @@ export interface RunRecord {
     message: string
   }[]
 }
+
+export interface RunListItem {
+  id: string
+  status: RunStatus
+  createdAt: string
+  finishedAt?: string
+  instructionsPreview: string
+  siteIds: SiteId[]
+  totalItems: number
+  completedItems: number
+  okCount: number
+  overLimitCount: number
+  errorCount: number
+}

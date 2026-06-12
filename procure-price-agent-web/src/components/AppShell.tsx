@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import { cn } from '@/lib/utils'
 import type { ReactNode } from 'react'
-import { FlaskConical, Settings2 } from 'lucide-react'
+import { Clock3, FlaskConical, Settings2 } from 'lucide-react'
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
@@ -19,6 +19,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </Link>
           <nav className="flex items-center gap-1">
             <NavItem to="/" label="查价" icon={<FlaskConical className="size-4" />} />
+            <NavItem to="/history" label="历史" icon={<Clock3 className="size-4" />} />
             <NavItem to="/settings" label="设置" icon={<Settings2 className="size-4" />} />
           </nav>
         </div>
@@ -45,4 +46,3 @@ function NavItem({ to, label, icon }: { to: string; label: string; icon: ReactNo
     </NavLink>
   )
 }
-

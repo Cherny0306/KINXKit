@@ -1,7 +1,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { randomUUID } from 'node:crypto'
-import type { AppSettings, RunRecord } from '../../shared/types'
+import type { AppSettings, RunListItem, RunRecord } from '../../shared/types'
 
 const dataDir = path.join(process.cwd(), '.data')
 const runsDir = path.join(dataDir, 'runs')
@@ -97,4 +97,56 @@ export async function loadRun(runId: string): Promise<RunRecord | null> {
   } catch {
     return null
   }
+}
+
+function buildInstructionsPreview(text: string) {
+  const s = String(text ?? '').replace(/\s+/g, ' ').trim()
+  if (s.length <= 60) return s
+  return `${s.slice(0, 60)}…`
+}
+
+function toListItem(run: RunRecord): RunListItem {
+  const okCount = run.items.filter((i) => i.recommended?.priceValue != null).length
+  const overLimitCount = run.items.filter((i) => i.limitCheck?.withinLimit === false).length
+  return {
+    id: run.id,
+    status: run.status,
+    createdAt: run.createdAt,
+    finishedAt: run.finishedAt,
+    instructionsPreview: buildInstructionsPreview(run.instructions),
+    siteIds: run.siteIds,
+    totalItems: run.totalItems,
+    completedItems: run.completedItems,
+    okCount,
+    overLimitCount,
+    errorCount: run.errors.length,
+  }
+}
+
+export async function listRuns(input?: { limit?: number }): Promise<RunListItem[]> {
+  await ensureDirs()
+  const limit = Math.max(1, Math.min(200, Number(input?.limit ?? 50)))
+  const entries = await fs.readdir(runsDir, { withFileTypes: true })
+  const files = entries
+    .filter((e) => e.isFile())
+    .map((e) => e.name)
+    .filter((name) => name.endsWith('.json'))
+    .map((name) => path.join(runsDir, name))
+
+  const loaded = await Promise.all(
+    files.map(async (p) => {
+      try {
+        const raw = await fs.readFile(p, 'utf-8')
+        return JSON.parse(raw) as RunRecord
+      } catch {
+        return null
+      }
+    }),
+  )
+
+  return loaded
+    .filter((x): x is RunRecord => Boolean(x))
+    .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1))
+    .slice(0, limit)
+    .map(toListItem)
 }

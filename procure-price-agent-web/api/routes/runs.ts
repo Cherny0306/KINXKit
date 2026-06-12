@@ -2,10 +2,20 @@ import { Router, type Request, type Response } from 'express'
 import multer from 'multer'
 import type { SiteId } from '../../shared/types'
 import { startRun } from '../services/runService.js'
-import { loadRun, loadRunCsv, loadRunReport } from '../storage/store.js'
+import { listRuns, loadRun, loadRunCsv, loadRunReport } from '../storage/store.js'
 
 const router = Router()
 const upload = multer({ storage: multer.memoryStorage() })
+
+router.get('/', async (req: Request, res: Response) => {
+  try {
+    const limit = req.query.limit ? Number(req.query.limit) : undefined
+    const runs = await listRuns({ limit })
+    res.json({ success: true, data: runs })
+  } catch (e) {
+    res.status(500).json({ success: false, error: e instanceof Error ? e.message : '读取失败' })
+  }
+})
 
 router.post('/', upload.single('file'), async (req: Request, res: Response) => {
   try {
