@@ -305,6 +305,12 @@ export default function Run() {
                           target="_blank"
                           rel="noreferrer"
                           className="mt-2 inline-flex items-center gap-1 text-xs text-zinc-900 underline-offset-4 hover:underline"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            const w = window.open(c.url, '_blank', 'noopener,noreferrer')
+                            if (!w) window.location.href = c.url
+                          }}
                         >
                           打开来源
                           <ExternalLink className="size-3" />
@@ -328,6 +334,12 @@ export default function Run() {
                           target="_blank"
                           rel="noreferrer"
                           className="mt-2 inline-flex items-center gap-1 text-xs text-zinc-900 underline-offset-4 hover:underline"
+                          onClick={(ev) => {
+                            ev.preventDefault()
+                            ev.stopPropagation()
+                            const w = window.open(e.url, '_blank', 'noopener,noreferrer')
+                            if (!w) window.location.href = e.url
+                          }}
                         >
                           打开页面
                           <ExternalLink className="size-3" />
