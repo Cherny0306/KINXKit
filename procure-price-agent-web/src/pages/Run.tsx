@@ -4,7 +4,7 @@ import { apiGet } from '@/utils/api'
 import type { RunRecord } from '../../shared/types'
 import { Card, CardContent, CardHeader } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
-import { Button, getButtonClassName } from '@/components/ui/Button'
+import { Button } from '@/components/ui/Button'
 import { Download, ExternalLink } from 'lucide-react'
 
 function money(n: number | null | undefined) {
@@ -82,7 +82,23 @@ export default function Run() {
   }
 
   const artifactsReady = run.status === 'succeeded'
-  const downloadLinkClassName = getButtonClassName({ variant: 'secondary', className: 'h-9' })
+
+  async function downloadArtifact(input: { url: string; filename: string; mime: string }) {
+    const res = await fetch(input.url)
+    if (!res.ok) {
+      const text = await res.text().catch(() => '')
+      throw new Error(text || `下载失败：HTTP ${res.status}`)
+    }
+    const blob = await res.blob()
+    const url = window.URL.createObjectURL(new Blob([blob], { type: input.mime }))
+    const a = document.createElement('a')
+    a.href = url
+    a.download = input.filename
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    window.URL.revokeObjectURL(url)
+  }
 
   return (
     <div className="space-y-6">
@@ -105,10 +121,20 @@ export default function Run() {
                 </>
               ) : null}
               {artifactsReady ? (
-                <a href={`/api/runs/${run.id}/export.csv`} target="_blank" rel="noreferrer" className={downloadLinkClassName}>
+                <Button
+                  variant="secondary"
+                  className="h-9"
+                  onClick={async () => {
+                    await downloadArtifact({
+                      url: `/api/runs/${run.id}/export.csv`,
+                      filename: `run-${run.id}.csv`,
+                      mime: 'text/csv; charset=utf-8',
+                    })
+                  }}
+                >
                   <Download className="size-4" />
                   CSV
-                </a>
+                </Button>
               ) : (
                 <Button variant="secondary" className="h-9" disabled title={run.status === 'failed' ? '任务失败，CSV 不可用' : '任务完成后可下载 CSV'}>
                   <Download className="size-4" />
@@ -116,10 +142,20 @@ export default function Run() {
                 </Button>
               )}
               {artifactsReady ? (
-                <a href={`/api/runs/${run.id}/report.md`} target="_blank" rel="noreferrer" className={downloadLinkClassName}>
+                <Button
+                  variant="secondary"
+                  className="h-9"
+                  onClick={async () => {
+                    await downloadArtifact({
+                      url: `/api/runs/${run.id}/report.md`,
+                      filename: `run-${run.id}.report.md`,
+                      mime: 'text/markdown; charset=utf-8',
+                    })
+                  }}
+                >
                   <Download className="size-4" />
                   报告
-                </a>
+                </Button>
               ) : (
                 <Button
                   variant="secondary"
