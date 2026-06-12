@@ -12,6 +12,14 @@ function money(n: number | null | undefined) {
   return `¥${n.toFixed(2)}`
 }
 
+function normalizeDownloadErrorMessage(message: string) {
+  const lower = String(message ?? '').toLowerCase()
+  if (lower.includes('invalid session token') || lower.includes('missing session token')) {
+    return '预览会话已失效：请刷新当前预览页面后重试下载；若仍失败，请重新打开本地预览。'
+  }
+  return message
+}
+
 export default function Run() {
   const { runId } = useParams()
   const [run, setRun] = useState<RunRecord | null>(null)
@@ -87,7 +95,7 @@ export default function Run() {
     const res = await fetch(input.url)
     if (!res.ok) {
       const text = await res.text().catch(() => '')
-      throw new Error(text || `下载失败：HTTP ${res.status}`)
+      throw new Error(normalizeDownloadErrorMessage(text || `下载失败：HTTP ${res.status}`))
     }
     const blob = await res.blob()
     const url = window.URL.createObjectURL(new Blob([blob], { type: input.mime }))

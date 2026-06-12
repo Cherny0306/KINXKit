@@ -1,5 +1,13 @@
 type ApiEnvelope<T> = { success: boolean; data?: T; error?: string }
 
+function normalizeKnownErrorMessage(message: string) {
+  const lower = String(message ?? '').toLowerCase()
+  if (lower.includes('invalid session token') || lower.includes('missing session token')) {
+    return '预览会话已失效：请刷新当前预览页面后重试；若仍失败，请重新打开本地预览。'
+  }
+  return message
+}
+
 function friendlyHttpError(status: number) {
   if (status === 504) {
     return '请求超时：后端正在重启或某些站点响应过慢，请稍后重试；若频繁出现，可先减少站点数量。'
@@ -22,10 +30,10 @@ async function unwrapJson<T>(res: Response): Promise<T> {
   }
 
   if (!res.ok) {
-    throw new Error(json?.error || friendlyHttpError(res.status))
+    throw new Error(normalizeKnownErrorMessage(json?.error || friendlyHttpError(res.status)))
   }
   if (!json?.success) {
-    throw new Error(json?.error ?? '请求失败')
+    throw new Error(normalizeKnownErrorMessage(json?.error ?? '请求失败'))
   }
   return json.data as T
 }
@@ -42,7 +50,7 @@ async function request<T>(path: string, init: RequestInit): Promise<T> {
       if (error.message === 'Failed to fetch') {
         throw new Error('无法连接到本地服务：请确认 `npm run dev` 正在运行。')
       }
-      throw error
+      throw new Error(normalizeKnownErrorMessage(error.message))
     }
     throw new Error('请求失败')
   }
